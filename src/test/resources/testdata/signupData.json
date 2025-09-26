@@ -1,0 +1,39 @@
+{
+  "validSignup": {
+    "username": "steelman",
+    "password": "123"
+  },
+  "shortPassword": {
+    "username": "yaamansah",
+    "password": "A"
+  },
+  "emptyUsername": {
+    "username": "",
+    "password": "ohsenior?!"
+  },
+  "emptyPassword": {
+    "username": "ofappiah",
+    "password": ""
+  },
+  "existingUser": {
+    "username": "kofipeter",
+    "password": "1234567890"
+  },
+  "specialCharsUsername": {
+    "username": "#$%^&*()",
+    "password": "akoaweipaa!"
+  },
+  "longUsername": {
+    "username": "ofakwamepokuakabigonipatriawuakasteelmanbender",
+    "password": "mabr3ohhmm"
+  },
+  "sqlInjectionAttempt": {
+    "username": "user' OR '1'='1",
+    "password": "!!!!!!"
+  },
+
+  "shortUsernamePassword": {
+    "username": "z",
+    "password": "A"
+  }
+}
