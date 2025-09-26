@@ -1,0 +1,42 @@
+{
+  "singleProduct": {
+    "name": "Samsung galaxy s6",
+    "price": "360"
+  },
+  "multipleProducts": [
+    {
+      "name": "Samsung galaxy s6",
+      "price": "360"
+    },
+    {
+      "name": "Nokia lumia 1520",
+      "price": "820"
+    },
+    {
+      "name": "MacBook air",
+      "price": "700"
+    }
+  ],
+  "duplicateProducts": [
+    {
+      "name": "Samsung galaxy s6",
+      "price": "360"
+    },
+    {
+      "name": "Samsung galaxy s6",
+      "price": "360"
+    }
+  ],
+  "highValueProduct": {
+    "name": "Sony vaio i7",
+    "price": "790"
+  },
+  "longNameProduct": {
+    "name": "Apple monitor 27-inch Ultra Retina HD Super Display with Extended Features and Enhanced Color Accuracy",
+    "price": "400"
+  },
+  "emptyCart": {
+    "products": [],
+    "totalPrice": "0"
+  }
+}
