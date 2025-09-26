@@ -1,0 +1,52 @@
+{
+  "validUser": {
+    "username": "kofipeter",
+    "password": "1234567890",
+    "expectedResult": "success"
+  },
+  "validUserCaseSensitive": {
+    "username": "ValidUser1",
+    "password": "ValidPass123",
+    "expectedResult": "success"
+  },
+  "invalidPassword": {
+    "username": "kofipeter",
+    "password": "passwordweide3",
+    "expectedResult": "fail"
+  },
+  "invalidUsername": {
+    "username": "kofip",
+    "password": "1234567890",
+    "expectedResult": "fail"
+  },
+  "emptyUsername": {
+    "username": "",
+    "password": "1234567890",
+    "expectedResult": "fail"
+  },
+  "emptyPassword": {
+    "username": "kofipeter",
+    "password": "",
+    "expectedResult": "fail"
+  },
+  "emptyCredentials": {
+    "username": "",
+    "password": "",
+    "expectedResult": "fail"
+  },
+  "sqlInjection": {
+    "username": "admin' OR '1'='1",
+    "password": "anything",
+    "expectedResult": "fail"
+  },
+  "xssAttempt": {
+    "username": "<script>alert('hack')</script>",
+    "password": "password",
+    "expectedResult": "fail"
+  },
+  "longPassword": {
+    "username": "validUser1",
+    "password": "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "expectedResult": "fail"
+  }
+}
