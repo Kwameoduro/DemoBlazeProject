@@ -1,0 +1,25 @@
+{
+  "navbar": {
+    "expectedLinksLoggedOut": "Home,Contact,About us,Cart,Log in,Sign up",
+    "expectedLinksLoggedIn": "Home,Contact,About us,Cart,Log out"
+  },
+  "user": {
+    "username": "kofipeter",
+    "password": "1234567890"
+  },
+  "slider": {
+    "expectedImageCountMin": "1"
+  },
+  "categories": {
+    "phones": "Phones",
+    "laptops": "Laptops",
+    "monitors": "Monitors"
+  },
+  "products": {
+    "maxProductsPerPage": "9",
+    "expectedPriceFormat": "regex:\\$[0-9]+"
+  },
+  "pagination": {
+    "hasMultiplePages": "true"
+  }
+}
