@@ -1,0 +1,55 @@
+{
+  "baseUrl": "https://www.demoblaze.com",
+  "browser": "chrome",
+  "browserSize": "1920x1080",
+  "fullscreen": true,
+  "maximize": false,
+  "headless": false,
+  "timeout": 5000,
+
+  "screenshotOnFailure": true,
+  "savePageSourceOnFailure": true,
+
+  "allure": {
+    "enabled": true,
+    "resultsDirectory": "target/allure-results",
+    "reportDirectory": "target/allure-report"
+  },
+
+  "environments": {
+    "dev": {
+      "baseUrl": "https://www.demoblaze.com",
+      "browser": "chrome",
+      "browserSize": "1920x1080",
+      "fullscreen": true,
+      "maximize": false
+    },
+    "qa": {
+      "baseUrl": "https://qa.demoblaze.com",
+      "browser": "firefox",
+      "browserSize": "1366x768",
+      "fullscreen": false,
+      "maximize": true
+    },
+    "staging": {
+      "baseUrl": "https://staging.demoblaze.com",
+      "browser": "chrome",
+      "browserSize": "1920x1080",
+      "fullscreen": false,
+      "maximize": true
+    },
+    "prod": {
+      "baseUrl": "https://www.demoblaze.com",
+      "browser": "chrome",
+      "browserSize": "1920x1080",
+      "fullscreen": true,
+      "maximize": false
+    }
+  },
+
+  "reporting": {
+    "screenshots": true,
+    "logs": true,
+    "videoRecording": false
+  }
+}
