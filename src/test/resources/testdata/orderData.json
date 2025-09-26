@@ -1,0 +1,46 @@
+{
+  "correctOrder": {
+    "name": "Kofi Peter",
+    "country": "Ghana",
+    "city": "Juaben",
+    "card": "1234567890123456",
+    "month": "09",
+    "year": "2025"
+  },
+  "emptyFields": {
+    "name": "",
+    "country": "",
+    "city": "",
+    "card": "",
+    "month": "",
+    "year": ""
+  },
+  "invalidCard": {
+    "name": "Kofi Peter",
+    "country": "Ghana",
+    "city": "Juaben",
+    "card": "abcdefg1234",
+    "month": "09",
+    "year": "2025"
+  },
+  "invalidMonthYear": {
+    "name": "Kofi Peter",
+    "country": "Ghana",
+    "city": "Juaben",
+    "card": "1234567890123456",
+    "month": "13",
+    "year": "abcd"
+  },
+  "singleOrder": {
+    "name": "Samsung galaxy s6",
+    "price": "360"
+  },
+  "emptyName": {
+    "name": "",
+    "country": "Ghana",
+    "city": "Juaben",
+    "card": "1234567890123456",
+    "month": "09",
+    "year": "2025"
+  }
+}
