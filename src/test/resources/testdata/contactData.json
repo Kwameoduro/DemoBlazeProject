@@ -1,0 +1,50 @@
+{
+  "validMessage": {
+    "email": "kofipeter@gmail.com",
+    "name": "Kofi Peter",
+    "message": "Hello, I would like more details about your products.",
+    "expectedResult": "Thanks for the message!!"
+  },
+  "emptyFields": {
+    "email": "",
+    "name": "",
+    "message": "",
+    "expectedResult": "BUG: Should not accept empty form"
+  },
+  "onlyEmail": {
+    "email": "kofipeter@gmail.com",
+    "name": "",
+    "message": "",
+    "expectedResult": "BUG: Should not accept email only"
+  },
+  "onlyMessage": {
+    "email": "",
+    "name": "",
+    "message": "Charley, this evening de3, if you don't cook adie be that o.",
+    "expectedResult": "BUG: Should not accept message without email"
+  },
+  "invalidEmail": {
+    "email": "hey hey hey",
+    "name": "Kofi Peter",
+    "message": "Charley, charley atire for weeks now. Put me on abeg waa",
+    "expectedResult": "BUG: Should validate email format"
+  },
+  "missingEmail": {
+    "email": "",
+    "name": "Kofi Peter",
+    "message": "Charley, this evening de3, if you don't cook adie be that o.",
+    "expectedResult": "Error: Kindly enter your email"
+  },
+  "missingName": {
+    "email": "kofipeter@gmail.com",
+    "name": "",
+    "message": "Charley, this evening de3, if you don't cook adie be that o.",
+    "expectedResult": "Error: Kindly enter your name"
+  },
+  "missingMessage": {
+    "email": "kofipeter@gmail.com",
+    "name": "Kofi Peter",
+    "message": "",
+    "expectedResult": "Error: Kindly enter your message"
+  }
+}
