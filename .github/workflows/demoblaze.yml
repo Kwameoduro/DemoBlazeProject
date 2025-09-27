@@ -243,7 +243,9 @@ jobs:
                      \"fields\": [
                        {
                          \"type\": \"mrkdwn\",
-                         \"text\": \"*Reports:*\\n• <https://github.com/Kwameoduro/DemoBlazeProject/allure-report/%7CAllure Report>\\n• <https://github.com/Kwameoduro/DemoBlazeProject/jmeter-report/%7CJMeter Report>\\n• <https://github.com/Kwameoduro/DemoBlazeProject/zap-report/zap-report.html%7CZAP Security Report>\"
+                         \"text\": \"*Reports:*\\n• <https://github.com/Kwameoduro/DemoBlazeProject/allure-report\n
+                                                  • <https://github.com/Kwameoduro/DemoBlazeProject/jmeter-report\n
+                                                  • <https://github.com/Kwameoduro/DemoBlazeProject/zap-report/zap-report.html\"
                        },
                        {
                          \"type\": \"mrkdwn\",
