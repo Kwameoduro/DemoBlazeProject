@@ -85,7 +85,7 @@
               -v ${{ github.workspace }}/security-test:/zap/wrk:rw \
               ghcr.io/zaproxy/zaproxy:stable zap-baseline.py \
               -t https://www.demoblaze.com \
-              -r index.html \   # 👈 renamed for GitHub Pages
+              -r zap-report.html \
               -J zap-report.json \
               -I
 
