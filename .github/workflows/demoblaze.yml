@@ -81,14 +81,15 @@
 
         - name: Run ZAP Baseline Scan
           run: |
-            docker run --rm \
-              --user root \   # 👈 fix permissions
+            docker run --rm --user root \
               -v ${{ github.workspace }}/security-test:/zap/wrk:rw \
-              ghcr.io/zaproxy/zaproxy:stable zap-baseline.py \
+              ghcr.io/zaproxy/zaproxy:stable \
+              zap-baseline.py \
               -t https://www.demoblaze.com \
               -r zap-report.html \
               -J zap-report.json \
               -I
+
             # 👇 Rename for GitHub Pages
             mv security-test/zap-report.html security-test/index.html
 
