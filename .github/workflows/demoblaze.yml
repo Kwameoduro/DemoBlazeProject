@@ -1,282 +1,260 @@
-name: DemoBlaze Automation Pipeline
+  name: DemoBlaze Automation Pipeline
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  on:
+    push:
+      branches: [ main ]
+    pull_request:
+      branches: [ main ]
 
-jobs:
-  # ------------------------
-  # 1. UI TESTS (BDD + Selenide)
-  # ------------------------
-  ui-tests:
-    name: 🧪 UI Tests
-    runs-on: ubuntu-latest
-    continue-on-error: false
+  jobs:
+    # ------------------------
+    # 1. UI TESTS (BDD + Selenide)
+    # ------------------------
+    ui-tests:
+      name: 🧪 UI Tests
+      runs-on: ubuntu-latest
+      continue-on-error: false
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v4
 
-      - name: Build Docker image for tests
-        run: docker build -t ecommerce_ui_tests .
+        - name: Build Docker image for tests
+          run: docker build -t ecommerce_ui_tests .
 
-      - name: Run tests with Docker Compose
-        run: |
-          docker compose up --build --abort-on-container-exit --exit-code-from tests
-        env:
-          COMPOSE_FILE: docker-compose.yml
+        - name: Run tests with Docker Compose
+          run: |
+            docker compose up --build --abort-on-container-exit --exit-code-from tests
+          env:
+            COMPOSE_FILE: docker-compose.yml
 
-      - name: Upload Allure results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-results
-          path: allure-results
+        - name: Upload Allure results
+          if: always()
+          uses: actions/upload-artifact@v4
+          with:
+            name: allure-results
+            path: allure-results
 
-  # ------------------------
-  # 2. PERFORMANCE TESTS (JMeter)
-  # ------------------------
-  performance:
-    name: 📊 JMeter Load Test
-    runs-on: ubuntu-latest
-    needs: ui-tests
-    if: always()
+    # ------------------------
+    # 2. PERFORMANCE TESTS (JMeter)
+    # ------------------------
+    performance:
+      name: 📊 JMeter Load Test
+      runs-on: ubuntu-latest
+      needs: ui-tests
+      if: always()
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v4
 
-      - name: Run JMeter test plan
-        run: |
-          mkdir -p jmeter-results
-          docker run --rm -v ${{ github.workspace }}:/jmeter \
-            justb4/jmeter \
-            -n -t /jmeter/performance-test/PerformanceTestPlanDemoBlaze.jmx \
-            -l /jmeter/jmeter-results/results.jtl \
-            -e -o /jmeter/jmeter-results/html-report
+        - name: Run JMeter test plan
+          run: |
+            mkdir -p jmeter-results
+            docker run --rm -v ${{ github.workspace }}:/jmeter \
+              justb4/jmeter \
+              -n -t /jmeter/performance-test/PerformanceTestPlanDemoBlaze.jmx \
+              -l /jmeter/jmeter-results/results.jtl \
+              -e -o /jmeter/jmeter-results/html-report
 
-      - name: Upload JMeter results
-        uses: actions/upload-artifact@v4
-        with:
-          name: jmeter-results
-          path: jmeter-results
+        - name: Upload JMeter results
+          uses: actions/upload-artifact@v4
+          with:
+            name: jmeter-results
+            path: jmeter-results
 
-  # ------------------------
-  # 3. SECURITY TESTS (OWASP ZAP)
-  # ------------------------
-  security:
-    name: 🔒 OWASP ZAP Scan
-    runs-on: ubuntu-latest
-    needs: ui-tests
-    if: always()
+    # ------------------------
+    # 3. SECURITY TESTS (OWASP ZAP)
+    # ------------------------
+    security:
+      name: 🔒 OWASP ZAP Scan
+      runs-on: ubuntu-latest
+      needs: ui-tests
+      if: always()
 
-    steps:
-      - name: Prepare security report folder
-        run: |
-          mkdir -p security-test
-          chmod 777 security-test
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v4
 
-      - name: Run ZAP Baseline Scan
-        run: |
-          docker run --rm \
-            -v ${{ github.workspace }}/security-test:/zap/wrk:rw \
-            ghcr.io/zaproxy/zaproxy:stable  zap-baseline.py \
-            -t https://www.demoblaze.com \
-            -r zap-report.html \
-            -J zap-report.json \
-            -I
+        - name: Prepare security report folder
+          run: mkdir -p security-test
 
-      - name: Upload ZAP Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: zap-report
-          path: security-test/
+        - name: Run ZAP Baseline Scan
+          run: |
+            docker run --rm \
+              -v ${{ github.workspace }}/security-test:/zap/wrk:rw \
+              ghcr.io/zaproxy/zaproxy:stable zap-baseline.py \
+              -t https://www.demoblaze.com \
+              -r zap-report.html \
+              -J zap-report.json \
+              -I
 
-  # ------------------------
-  # 4. DEPLOY ALLURE REPORT
-  # ------------------------
-  deploy-allure-report:
-    name: 🚀 Publish Allure Report
-    runs-on: ubuntu-latest
-    needs: ui-tests
-    if: always()
+        - name: Upload ZAP Report
+          uses: actions/upload-artifact@v4
+          with:
+            name: zap-report
+            path: security-test/
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    # ------------------------
+    # 4. DEPLOY ALLURE REPORT
+    # ------------------------
+    deploy-allure-report:
+      name: 🚀 Publish Allure Report
+      runs-on: ubuntu-latest
+      needs: ui-tests
+      if: always()
 
-      - name: Download Allure results
-        uses: actions/download-artifact@v4
-        with:
-          name: allure-results
-          path: allure-results
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
 
-      - name: Install Allure CLI
-        run: |
-          wget https://github.com/allure-framework/allure2/releases/download/2.27.0/allure-2.27.0.tgz
-          tar -xzf allure-2.27.0.tgz
-          sudo mv allure-2.27.0 /opt/allure
-          sudo ln -s /opt/allure/bin/allure /usr/local/bin/allure
+        - name: Download Allure results
+          uses: actions/download-artifact@v4
+          with:
+            name: allure-results
+            path: allure-results
 
-      - name: Generate Allure report
-        run: allure generate allure-results --clean -o allure-report
+        - name: Install Allure CLI
+          run: |
+            wget https://github.com/allure-framework/allure2/releases/download/2.27.0/allure-2.27.0.tgz
+            tar -xzf allure-2.27.0.tgz
+            sudo mv allure-2.27.0 /opt/allure
+            sudo ln -s /opt/allure/bin/allure /usr/local/bin/allure
 
-      - name: Deploy Allure report to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: allure-report
-          publish_branch: gh-pages
-          destination_dir: allure-report
-          force_orphan: false
+        - name: Generate Allure report
+          run: allure generate allure-results --clean -o allure-report
 
-  deploy-jmeter-report:
-    name: 🚀 Publish JMeter Report
-    runs-on: ubuntu-latest
-    needs: performance
-    if: always()
+        - name: Deploy Allure report to GitHub Pages
+          uses: peaceiris/actions-gh-pages@v4
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: allure-report
+            publish_branch: gh-pages
+            destination_dir: allure-report
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    # ------------------------
+    # 5. DEPLOY JMETER REPORT
+    # ------------------------
+    deploy-jmeter-report:
+      name: 🚀 Publish JMeter Report
+      runs-on: ubuntu-latest
+      needs: performance
+      if: always()
 
-      - name: Download JMeter results
-        uses: actions/download-artifact@v4
-        with:
-          name: jmeter-results
-          path: jmeter-results
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
 
-      - name: Deploy JMeter report to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: jmeter-results/html-report
-          publish_branch: gh-pages
-          destination_dir: jmeter-report
-          force_orphan: false
+        - name: Download JMeter results
+          uses: actions/download-artifact@v4
+          with:
+            name: jmeter-results
+            path: jmeter-results
 
-  deploy-zap-report:
-    name: 🚀 Publish ZAP Security Report
-    runs-on: ubuntu-latest
-    needs: security
-    if: always()
+        - name: Deploy JMeter report to GitHub Pages
+          uses: peaceiris/actions-gh-pages@v4
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: jmeter-results/html-report
+            publish_branch: gh-pages
+            destination_dir: jmeter-report
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    # ------------------------
+    # 6. DEPLOY ZAP REPORT
+    # ------------------------
+    deploy-zap-report:
+      name: 🚀 Publish ZAP Security Report
+      runs-on: ubuntu-latest
+      needs: security
+      if: always()
 
-      - name: Download ZAP report artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: zap-report
-          path: security/security_report
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
 
-      - name: Deploy ZAP report to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: security/security_report
-          publish_branch: gh-pages
-          destination_dir: zap-report
-          force_orphan: false
+        - name: Download ZAP report artifact
+          uses: actions/download-artifact@v4
+          with:
+            name: zap-report
+            path: zap-report
 
+        - name: Deploy ZAP report to GitHub Pages
+          uses: peaceiris/actions-gh-pages@v4
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: zap-report
+            publish_branch: gh-pages
+            destination_dir: zap-report
 
+    # ------------------------
+    # 7. SLACK NOTIFICATION
+    # ------------------------
+    notify-slack:
+      name: 🔔 Slack Notification
+      runs-on: ubuntu-latest
+      needs: [ ui-tests, performance, security, deploy-allure-report, deploy-jmeter-report, deploy-zap-report ]
+      if: always()
 
-
-  # ------------------------
-  # 5. SLACK NOTIFICATION
-  # ------------------------
-  notify-slack:
-    name: 🔔 Slack Notification
-    runs-on: ubuntu-latest
-    needs: [ ui-tests, performance, security, deploy-allure-report, deploy-jmeter-report, deploy-zap-report ]
-    if: always()
-
-    steps:
-      - name: Send Slack notification
-        run: |
-          # Default values
-          STATUS="success"
-          COLOR="good"
-          EMOJI="✅"
-          TITLE="*DemoBlaze Testing Pipeline Passed*"
-          
-          # If any upstream job failed because of test/assertion failures
-          if [[ "${{ needs.ui-tests.result }}" == "failure" || \
-                "${{ needs.performance.result }}" == "failure" || \
-                "${{ needs.security.result }}" == "failure" ]]; then
-            STATUS="completed_with_failures"
-            COLOR="warning"
-            EMOJI="⚠️"
-            TITLE="*DemoBlaze Testing Pipeline Completed with Failures*"
-          fi
-          
-          # If any upstream job failed due to infra (cancelled or error)
-           if [[ "${{ needs.ui-tests.result }}" == "cancelled" || \
-                "${{ needs.performance.result }}" == "cancelled" || \
-                "${{ needs.security.result }}" == "cancelled" || \
-                "${{ needs.ui-tests.result }}" == "skipped" || \
-                "${{ needs.performance.result }}" == "skipped" || \
-                "${{ needs.security.result }}" == "skipped" ]]; then
-             STATUS="failed"
-             COLOR="danger"
-             EMOJI="❌"
-             TITLE="*DemoBlaze Testing Pipeline Failed*"
-           fi
-          
-           curl -X POST -H 'Content-type: application/json' --data "{
-             \"attachments\": [
-               {
-                 \"color\": \"$COLOR\",
-                 \"blocks\": [
-                   {
-                     \"type\": \"section\",
-                     \"text\": {
-                       \"type\": \"mrkdwn\",
-                       \"text\": \"$EMOJI $TITLE\n*Status:* $STATUS\"
-                     }
-                   },
-                   {
-                     \"type\": \"section\",
-                     \"fields\": [
-                       {
+      steps:
+        - name: Send Slack notification
+          run: |
+            STATUS="success"
+            COLOR="good"
+            EMOJI="✅"
+            TITLE="*DemoBlaze Testing Pipeline Passed*"
+            
+            if [[ "${{ needs.ui-tests.result }}" == "failure" || \
+                  "${{ needs.performance.result }}" == "failure" || \
+                  "${{ needs.security.result }}" == "failure" ]]; then
+              STATUS="completed_with_failures"
+              COLOR="warning"
+              EMOJI="⚠️"
+              TITLE="*DemoBlaze Testing Pipeline Completed with Failures*"
+            fi
+            
+            if [[ "${{ needs.ui-tests.result }}" == "cancelled" || \
+                  "${{ needs.performance.result }}" == "cancelled" || \
+                  "${{ needs.security.result }}" == "cancelled" || \
+                  "${{ needs.ui-tests.result }}" == "skipped" || \
+                  "${{ needs.performance.result }}" == "skipped" || \
+                  "${{ needs.security.result }}" == "skipped" ]]; then
+               STATUS="failed"
+               COLOR="danger"
+               EMOJI="❌"
+               TITLE="*DemoBlaze Testing Pipeline Failed*"
+            fi
+            
+            REPO_URL="https://kwameoduro.github.io/DemoBlazeProject"
+            ALLURE_URL="$REPO_URL/allure-report/"
+            JMETER_URL="$REPO_URL/jmeter-report/"
+            ZAP_URL="$REPO_URL/zap-report/"
+            
+            curl -X POST -H 'Content-type: application/json' --data "{
+               \"attachments\": [
+                 {
+                   \"color\": \"$COLOR\",
+                   \"blocks\": [
+                     {
+                       \"type\": \"section\",
+                       \"text\": {
                          \"type\": \"mrkdwn\",
-                         \"text\": \"*Reports:*\\n• <https://github.com/Kwameoduro/DemoBlazeProject/allure-report\n
-                                                  • <https://github.com/Kwameoduro/DemoBlazeProject/jmeter-report\n
-                                                  • <https://github.com/Kwameoduro/DemoBlazeProject/zap-report/zap-report.html\"
-                       },
-                       {
-                         \"type\": \"mrkdwn\",
-                         \"text\": \"*Build URL:*\n$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID\"
+                         \"text\": \"$EMOJI $TITLE\n*Status:* $STATUS\"
                        }
-                     ]
-                   }
-                 ]
-               }
-             ]
-           }" ${{ secrets.SLACK_WEBHOOK_URL }}
-
-  # ------------------------
-  # 6. JIRA INTEGRATION (Optional)
-  # ------------------------
-#  jira-xray:
-#    name: 📌 Push Results to Jira/Xray
-#    runs-on: ubuntu-latest
-#    needs: [ui-tests]
-#    if: always()
-#
-#    steps:
-#      - name: Download Allure results
-#        uses: actions/download-artifact@v4
-#        with:
-#          name: allure-results
-#          path: allure-results
-#
-#      - name: Push to Xray
-#        run: |
-#          curl -H "Content-Type: application/json" \
-#               -H "Authorization: Bearer ${{ secrets.XRAY_API_TOKEN }}" \
-#               --data @allure-results/cucumber.json \
-#               https://xray.cloud.getxray.app/api/v2/import/execution/cucumber
+                     },
+                     {
+                       \"type\": \"section\",
+                       \"fields\": [
+                         {
+                           \"type\": \"mrkdwn\",
+                           \"text\": \"*Reports:*\\n<${ALLURE_URL}|Allure Report>\\n<${JMETER_URL}|JMeter Report>\\n<${ZAP_URL}|ZAP Security Report>\"
+                         },
+                         {
+                           \"type\": \"mrkdwn\",
+                           \"text\": \"*Build URL:*\n$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID\"
+                         }
+                       ]
+                     }
+                   ]
+                 }
+               ]
+             }" ${{ secrets.SLACK_WEBHOOK_URL }}
