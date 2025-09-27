@@ -1,8 +1,8 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.16.1",
-	"@generated": "Sat, 27 Sept 2025 14:47:13",
-	"created": "2025-09-27T14:47:13.625216176Z",
+	"@generated": "Sat, 27 Sept 2025 14:59:11",
+	"created": "2025-09-27T14:59:11.705840331Z",
 	"site":[ 
 		{
 			"@name": "https://www.demoblaze.com",
@@ -30,7 +30,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "22",
+							"id": "31",
 							"uri": "https://www.demoblaze.com/",
 							"method": "GET",
 							"param": "",
@@ -39,7 +39,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "43",
+							"id": "22",
 							"uri": "https://www.demoblaze.com/cart.html",
 							"method": "GET",
 							"param": "",
@@ -48,7 +48,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "31",
+							"id": "48",
 							"uri": "https://www.demoblaze.com/index.html",
 							"method": "GET",
 							"param": "",
@@ -57,16 +57,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "3",
-							"uri": "https://www.demoblaze.com/robots.txt",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"id": "2",
+							"id": "1",
 							"uri": "https://www.demoblaze.com/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -75,13 +66,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "6",
+					"count": "5",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10020",
@@ -94,7 +85,7 @@
 					"desc": "<p>The response does not protect against 'ClickJacking' attacks. It should include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options.</p>",
 					"instances":[ 
 						{
-							"id": "0",
+							"id": "3",
 							"uri": "https://www.demoblaze.com",
 							"method": "GET",
 							"param": "x-frame-options",
@@ -103,7 +94,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "13",
+							"id": "29",
 							"uri": "https://www.demoblaze.com/",
 							"method": "GET",
 							"param": "x-frame-options",
@@ -112,7 +103,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "41",
+							"id": "20",
 							"uri": "https://www.demoblaze.com/cart.html",
 							"method": "GET",
 							"param": "x-frame-options",
@@ -121,7 +112,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "29",
+							"id": "41",
 							"uri": "https://www.demoblaze.com/index.html",
 							"method": "GET",
 							"param": "x-frame-options",
@@ -136,7 +127,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "8"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10003",
@@ -149,7 +140,7 @@
 					"desc": "<p>The identified library appears to be vulnerable.</p>",
 					"instances":[ 
 						{
-							"id": "94",
+							"id": "93",
 							"uri": "https://www.demoblaze.com/node_modules/jquery/dist/jquery.min.js",
 							"method": "GET",
 							"param": "",
@@ -177,17 +168,8 @@
 					"desc": "<p>Cross-Origin-Resource-Policy header is an opt-in header designed to counter side-channels attacks like Spectre. Resource should be specifically set as shareable amongst different origins.</p>",
 					"instances":[ 
 						{
-							"id": "55",
+							"id": "45",
 							"uri": "https://www.demoblaze.com",
-							"method": "GET",
-							"param": "Cross-Origin-Resource-Policy",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"id": "50",
-							"uri": "https://www.demoblaze.com/cart.html",
 							"method": "GET",
 							"param": "Cross-Origin-Resource-Policy",
 							"attack": "",
@@ -196,6 +178,15 @@
 						},
 						{
 							"id": "38",
+							"uri": "https://www.demoblaze.com/",
+							"method": "GET",
+							"param": "Cross-Origin-Resource-Policy",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "60",
 							"uri": "https://www.demoblaze.com/index.html",
 							"method": "GET",
 							"param": "Cross-Origin-Resource-Policy",
@@ -204,17 +195,8 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "58",
-							"uri": "https://www.demoblaze.com",
-							"method": "GET",
-							"param": "Cross-Origin-Embedder-Policy",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"id": "51",
-							"uri": "https://www.demoblaze.com/cart.html",
+							"uri": "https://www.demoblaze.com",
 							"method": "GET",
 							"param": "Cross-Origin-Embedder-Policy",
 							"attack": "",
@@ -223,7 +205,7 @@
 						},
 						{
 							"id": "39",
-							"uri": "https://www.demoblaze.com/index.html",
+							"uri": "https://www.demoblaze.com/",
 							"method": "GET",
 							"param": "Cross-Origin-Embedder-Policy",
 							"attack": "",
@@ -232,6 +214,15 @@
 						},
 						{
 							"id": "61",
+							"uri": "https://www.demoblaze.com/index.html",
+							"method": "GET",
+							"param": "Cross-Origin-Embedder-Policy",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "52",
 							"uri": "https://www.demoblaze.com",
 							"method": "GET",
 							"param": "Cross-Origin-Opener-Policy",
@@ -240,8 +231,8 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "52",
-							"uri": "https://www.demoblaze.com/cart.html",
+							"id": "40",
+							"uri": "https://www.demoblaze.com/",
 							"method": "GET",
 							"param": "Cross-Origin-Opener-Policy",
 							"attack": "",
@@ -249,7 +240,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "40",
+							"id": "62",
 							"uri": "https://www.demoblaze.com/index.html",
 							"method": "GET",
 							"param": "Cross-Origin-Opener-Policy",
@@ -264,7 +255,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy</p>",
 					"cweid": "693",
 					"wascid": "14",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10063",
@@ -277,7 +268,7 @@
 					"desc": "<p>Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.</p>",
 					"instances":[ 
 						{
-							"id": "54",
+							"id": "44",
 							"uri": "https://www.demoblaze.com",
 							"method": "GET",
 							"param": "",
@@ -286,7 +277,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "68",
+							"id": "37",
 							"uri": "https://www.demoblaze.com/",
 							"method": "GET",
 							"param": "",
@@ -295,7 +286,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "49",
+							"id": "64",
 							"uri": "https://www.demoblaze.com/cart.html",
 							"method": "GET",
 							"param": "",
@@ -304,7 +295,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "37",
+							"id": "59",
 							"uri": "https://www.demoblaze.com/index.html",
 							"method": "GET",
 							"param": "",
@@ -313,7 +304,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "95",
+							"id": "96",
 							"uri": "https://www.demoblaze.com/js/cart.js",
 							"method": "GET",
 							"param": "",
@@ -322,17 +313,8 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "93",
+							"id": "94",
 							"uri": "https://www.demoblaze.com/js/index.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"id": "90",
-							"uri": "https://www.demoblaze.com/node_modules/bootstrap/dist/js/bootstrap.min.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -349,7 +331,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "88",
+							"id": "91",
 							"uri": "https://www.demoblaze.com/node_modules/tether/dist/js/tether.min.js",
 							"method": "GET",
 							"param": "",
@@ -358,8 +340,8 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "28",
-							"uri": "https://www.demoblaze.com/robots.txt",
+							"id": "95",
+							"uri": "https://www.demoblaze.com/node_modules/videojs-contrib-hls/dist/videojs-contrib-hls.min.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -368,6 +350,15 @@
 						},
 						{
 							"id": "7",
+							"uri": "https://www.demoblaze.com/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "28",
 							"uri": "https://www.demoblaze.com/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -382,7 +373,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10035",
@@ -395,7 +386,7 @@
 					"desc": "<p>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.</p>",
 					"instances":[ 
 						{
-							"id": "16",
+							"id": "15",
 							"uri": "https://www.demoblaze.com",
 							"method": "GET",
 							"param": "",
@@ -404,7 +395,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "25",
+							"id": "34",
 							"uri": "https://www.demoblaze.com/",
 							"method": "GET",
 							"param": "",
@@ -413,7 +404,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "46",
+							"id": "25",
 							"uri": "https://www.demoblaze.com/cart.html",
 							"method": "GET",
 							"param": "",
@@ -431,7 +422,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "74",
+							"id": "73",
 							"uri": "https://www.demoblaze.com/css/latostyle.css",
 							"method": "GET",
 							"param": "",
@@ -440,7 +431,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "64",
+							"id": "66",
 							"uri": "https://www.demoblaze.com/favicon.ico",
 							"method": "GET",
 							"param": "",
@@ -449,7 +440,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "34",
+							"id": "56",
 							"uri": "https://www.demoblaze.com/index.html",
 							"method": "GET",
 							"param": "",
@@ -458,8 +449,8 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "82",
-							"uri": "https://www.demoblaze.com/node_modules/tether/dist/js/tether.min.js",
+							"id": "81",
+							"uri": "https://www.demoblaze.com/node_modules/jquery/dist/jquery.min.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -476,7 +467,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "4",
+							"id": "5",
 							"uri": "https://www.demoblaze.com/robots.txt",
 							"method": "GET",
 							"param": "",
@@ -485,7 +476,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "5",
+							"id": "4",
 							"uri": "https://www.demoblaze.com/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -500,7 +491,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>https://caniuse.com/stricttransportsecurity</p><p>https://datatracker.ietf.org/doc/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10021",
@@ -513,7 +504,7 @@
 					"desc": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>",
 					"instances":[ 
 						{
-							"id": "19",
+							"id": "18",
 							"uri": "https://www.demoblaze.com",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -522,7 +513,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"id": "26",
+							"id": "35",
 							"uri": "https://www.demoblaze.com/",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -531,7 +522,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"id": "47",
+							"id": "26",
 							"uri": "https://www.demoblaze.com/cart.html",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -540,7 +531,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"id": "71",
+							"id": "72",
 							"uri": "https://www.demoblaze.com/css/latofonts.css",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -549,7 +540,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"id": "75",
+							"id": "74",
 							"uri": "https://www.demoblaze.com/css/latostyle.css",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -558,7 +549,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"id": "65",
+							"id": "67",
 							"uri": "https://www.demoblaze.com/favicon.ico",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -567,7 +558,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"id": "35",
+							"id": "57",
 							"uri": "https://www.demoblaze.com/index.html",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -576,8 +567,8 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"id": "89",
-							"uri": "https://www.demoblaze.com/node_modules/bootstrap/dist/js/bootstrap.min.js",
+							"id": "85",
+							"uri": "https://www.demoblaze.com/node_modules/bootstrap/dist/css/bootstrap.min.css",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -585,7 +576,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"id": "91",
+							"id": "87",
 							"uri": "https://www.demoblaze.com/node_modules/jquery/dist/jquery.min.js",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -594,7 +585,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"id": "83",
+							"id": "89",
 							"uri": "https://www.demoblaze.com/node_modules/tether/dist/js/tether.min.js",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -603,7 +594,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"id": "79",
+							"id": "82",
 							"uri": "https://www.demoblaze.com/node_modules/video.js/dist/video-js.min.css",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -618,7 +609,7 @@
 					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10027",
@@ -631,7 +622,7 @@
 					"desc": "<p>The response appears to contain suspicious comments which may help an attacker.</p>",
 					"instances":[ 
 						{
-							"id": "87",
+							"id": "79",
 							"uri": "https://www.demoblaze.com/node_modules/jquery/dist/jquery.min.js",
 							"method": "GET",
 							"param": "",
@@ -649,7 +640,7 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in likely comment: \"//)){var t=h.createElement(\"div\");t.innerHTML='<a href=\"'+e+'\">x</a>',e=t.firstChild.href}return e}function Rt(e){if(\"string\"==t\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"id": "96",
+							"id": "90",
 							"uri": "https://www.demoblaze.com/node_modules/videojs-contrib-hls/dist/videojs-contrib-hls.min.js",
 							"method": "GET",
 							"param": "",
@@ -686,7 +677,7 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"id": "23",
+							"id": "32",
 							"uri": "https://www.demoblaze.com/",
 							"method": "GET",
 							"param": "",
@@ -695,7 +686,7 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"id": "44",
+							"id": "23",
 							"uri": "https://www.demoblaze.com/cart.html",
 							"method": "GET",
 							"param": "",
@@ -704,7 +695,7 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"id": "32",
+							"id": "54",
 							"uri": "https://www.demoblaze.com/index.html",
 							"method": "GET",
 							"param": "",
@@ -719,7 +710,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "8"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10015",
@@ -741,7 +732,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "21",
+							"id": "30",
 							"uri": "https://www.demoblaze.com/",
 							"method": "GET",
 							"param": "cache-control",
@@ -750,7 +741,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "42",
+							"id": "21",
 							"uri": "https://www.demoblaze.com/cart.html",
 							"method": "GET",
 							"param": "cache-control",
@@ -759,7 +750,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "30",
+							"id": "46",
 							"uri": "https://www.demoblaze.com/index.html",
 							"method": "GET",
 							"param": "cache-control",
@@ -774,7 +765,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10050",
@@ -787,7 +778,7 @@
 					"desc": "<p>The content was retrieved from a shared cache. If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p>",
 					"instances":[ 
 						{
-							"id": "15",
+							"id": "14",
 							"uri": "https://www.demoblaze.com",
 							"method": "GET",
 							"param": "",
@@ -796,7 +787,7 @@
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
-							"id": "24",
+							"id": "33",
 							"uri": "https://www.demoblaze.com/",
 							"method": "GET",
 							"param": "",
@@ -805,7 +796,7 @@
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
-							"id": "45",
+							"id": "24",
 							"uri": "https://www.demoblaze.com/cart.html",
 							"method": "GET",
 							"param": "",
@@ -823,7 +814,7 @@
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
-							"id": "73",
+							"id": "71",
 							"uri": "https://www.demoblaze.com/css/latostyle.css",
 							"method": "GET",
 							"param": "",
@@ -832,7 +823,7 @@
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
-							"id": "63",
+							"id": "65",
 							"uri": "https://www.demoblaze.com/favicon.ico",
 							"method": "GET",
 							"param": "",
@@ -841,7 +832,7 @@
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
-							"id": "33",
+							"id": "55",
 							"uri": "https://www.demoblaze.com/index.html",
 							"method": "GET",
 							"param": "",
@@ -850,7 +841,7 @@
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
-							"id": "86",
+							"id": "84",
 							"uri": "https://www.demoblaze.com/node_modules/bootstrap/dist/css/bootstrap.min.css",
 							"method": "GET",
 							"param": "",
@@ -859,8 +850,8 @@
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
-							"id": "85",
-							"uri": "https://www.demoblaze.com/node_modules/bootstrap/dist/js/bootstrap.min.js",
+							"id": "80",
+							"uri": "https://www.demoblaze.com/node_modules/jquery/dist/jquery.min.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -868,7 +859,7 @@
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
-							"id": "81",
+							"id": "88",
 							"uri": "https://www.demoblaze.com/node_modules/tether/dist/js/tether.min.js",
 							"method": "GET",
 							"param": "",
@@ -892,7 +883,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.rfc-editor.org/rfc/rfc9110.html</p>",
 					"cweid": "525",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10049",
@@ -905,7 +896,7 @@
 					"desc": "<p>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users. If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where \"shared\" caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p>",
 					"instances":[ 
 						{
-							"id": "53",
+							"id": "43",
 							"uri": "https://www.demoblaze.com",
 							"method": "GET",
 							"param": "",
@@ -914,7 +905,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "67",
+							"id": "36",
 							"uri": "https://www.demoblaze.com/",
 							"method": "GET",
 							"param": "",
@@ -923,7 +914,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "48",
+							"id": "63",
 							"uri": "https://www.demoblaze.com/cart.html",
 							"method": "GET",
 							"param": "",
@@ -932,7 +923,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "72",
+							"id": "75",
 							"uri": "https://www.demoblaze.com/css/latofonts.css",
 							"method": "GET",
 							"param": "",
@@ -950,7 +941,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "66",
+							"id": "68",
 							"uri": "https://www.demoblaze.com/favicon.ico",
 							"method": "GET",
 							"param": "",
@@ -959,7 +950,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "36",
+							"id": "58",
 							"uri": "https://www.demoblaze.com/index.html",
 							"method": "GET",
 							"param": "",
@@ -968,8 +959,8 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "84",
-							"uri": "https://www.demoblaze.com/node_modules/tether/dist/js/tether.min.js",
+							"id": "86",
+							"uri": "https://www.demoblaze.com/node_modules/bootstrap/dist/css/bootstrap.min.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -977,7 +968,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "80",
+							"id": "83",
 							"uri": "https://www.demoblaze.com/node_modules/video.js/dist/video-js.min.css",
 							"method": "GET",
 							"param": "",
@@ -986,7 +977,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "27",
+							"id": "6",
 							"uri": "https://www.demoblaze.com/robots.txt",
 							"method": "GET",
 							"param": "",
@@ -995,7 +986,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"id": "6",
+							"id": "27",
 							"uri": "https://www.demoblaze.com/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -1010,7 +1001,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				}
 			]
 		}
