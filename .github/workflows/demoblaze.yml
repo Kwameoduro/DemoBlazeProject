@@ -82,6 +82,7 @@
         - name: Run ZAP Baseline Scan
           run: |
             docker run --rm \
+              --user root \   # 👈 fix permissions
               -v ${{ github.workspace }}/security-test:/zap/wrk:rw \
               ghcr.io/zaproxy/zaproxy:stable zap-baseline.py \
               -t https://www.demoblaze.com \
@@ -96,6 +97,7 @@
           with:
             name: zap-report
             path: security-test/
+
 
 
     # ------------------------
