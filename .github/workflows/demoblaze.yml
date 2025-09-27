@@ -171,13 +171,13 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: zap-report
-          path: security/security_report
+          path: security-test
 
       - name: Deploy ZAP report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: security/security_report
+          publish_dir: security-test
           publish_branch: gh-pages
           destination_dir: zap-report
           force_orphan: false
