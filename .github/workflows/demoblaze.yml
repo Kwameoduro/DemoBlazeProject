@@ -88,12 +88,15 @@
               -r zap-report.html \
               -J zap-report.json \
               -I
+            # 👇 Rename for GitHub Pages
+            mv security-test/zap-report.html security-test/index.html
 
         - name: Upload ZAP Report
           uses: actions/upload-artifact@v4
           with:
             name: zap-report
             path: security-test/
+
 
     # ------------------------
     # 4. DEPLOY ALLURE REPORT
