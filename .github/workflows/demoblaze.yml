@@ -226,74 +226,75 @@
 
 
       # ------------------------
-    # 7. SLACK NOTIFICATION
-    # ------------------------
-    notify-slack:
-      name: 🔔 Slack Notification
-      runs-on: ubuntu-latest
-      needs: [ ui-tests, performance, security, deploy-allure-report, deploy-jmeter-report, deploy-zap-report, deploy-cucumber-report ]
-      if: always()
+      # 7. SLACK NOTIFICATION
+      # ------------------------
+      notify-slack:
+        name: 🔔 Slack Notification
+        runs-on: ubuntu-latest
+        needs: [ ui-tests, performance, security, deploy-allure-report, deploy-jmeter-report, deploy-zap-report, deploy-cucumber-report ]
+        if: always()
 
-      steps:
-        - name: Send Slack notification
-          run: |
-            STATUS="success"
-            COLOR="good"
-            EMOJI="✅"
-            TITLE="*DemoBlaze Testing Pipeline Passed*"
-            
-            if [[ "${{ needs.ui-tests.result }}" == "failure" || \
-                  "${{ needs.performance.result }}" == "failure" || \
-                  "${{ needs.security.result }}" == "failure" ]]; then
-              STATUS="completed_with_failures"
-              COLOR="warning"
-              EMOJI="⚠️"
-              TITLE="*DemoBlaze Testing Pipeline Completed with Failures*"
-            fi
-            
-            if [[ "${{ needs.ui-tests.result }}" == "cancelled" || \
-                  "${{ needs.performance.result }}" == "cancelled" || \
-                  "${{ needs.security.result }}" == "cancelled" || \
-                  "${{ needs.ui-tests.result }}" == "skipped" || \
-                  "${{ needs.performance.result }}" == "skipped" || \
-                  "${{ needs.security.result }}" == "skipped" ]]; then
-               STATUS="failed"
-               COLOR="danger"
-               EMOJI="❌"
-               TITLE="*DemoBlaze Testing Pipeline Failed*"
-            fi
-            
-            REPO_URL="https://kwameoduro.github.io/DemoBlazeProject"
-            ALLURE_URL="$REPO_URL/allure-report/"
-            JMETER_URL="$REPO_URL/jmeter-report/"
-            ZAP_URL="$REPO_URL/zap-report/"
-            
-            curl -X POST -H 'Content-type: application/json' --data "{
-               \"attachments\": [
-                 {
-                   \"color\": \"$COLOR\",
-                   \"blocks\": [
-                     {
-                       \"type\": \"section\",
-                       \"text\": {
-                         \"type\": \"mrkdwn\",
-                         \"text\": \"$EMOJI $TITLE\n*Status:* $STATUS\"
-                       }
-                     },
-                     {
-                       \"type\": \"section\",
-                       \"fields\": [
-                         {
+        steps:
+          - name: Send Slack notification
+            run: |
+              STATUS="success"
+              COLOR="good"
+              EMOJI="✅"
+              TITLE="*DemoBlaze Testing Pipeline Passed*"
+              
+              if [[ "${{ needs.ui-tests.result }}" == "failure" || \
+                    "${{ needs.performance.result }}" == "failure" || \
+                    "${{ needs.security.result }}" == "failure" ]]; then
+                STATUS="completed_with_failures"
+                COLOR="warning"
+                EMOJI="⚠️"
+                TITLE="*DemoBlaze Testing Pipeline Completed with Failures*"
+              fi
+              
+              if [[ "${{ needs.ui-tests.result }}" == "cancelled" || \
+                    "${{ needs.performance.result }}" == "cancelled" || \
+                    "${{ needs.security.result }}" == "cancelled" || \
+                    "${{ needs.ui-tests.result }}" == "skipped" || \
+                    "${{ needs.performance.result }}" == "skipped" || \
+                    "${{ needs.security.result }}" == "skipped" ]]; then
+                 STATUS="failed"
+                 COLOR="danger"
+                 EMOJI="❌"
+                 TITLE="*DemoBlaze Testing Pipeline Failed*"
+              fi
+              
+              REPO_URL="https://kwameoduro.github.io/DemoBlazeProject"
+              ALLURE_URL="$REPO_URL/allure-report/"
+              JMETER_URL="$REPO_URL/jmeter-report/"
+              ZAP_URL="$REPO_URL/zap-report/"
+              CUCUMBER_URL="$REPO_URL/cucumber-report/"
+              
+              curl -X POST -H 'Content-type: application/json' --data "{
+                 \"attachments\": [
+                   {
+                     \"color\": \"$COLOR\",
+                     \"blocks\": [
+                       {
+                         \"type\": \"section\",
+                         \"text\": {
                            \"type\": \"mrkdwn\",
-                           \"text\": \"*Reports:*\\n<${ALLURE_URL}|Allure Report>\\n<${JMETER_URL}|JMeter Report>\\n<${ZAP_URL}|ZAP Security Report>\"
-                         },
-                         {
-                           \"type\": \"mrkdwn\",
-                           \"text\": \"*Build URL:*\n$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID\"
+                           \"text\": \"$EMOJI $TITLE\n*Status:* $STATUS\" 
                          }
-                       ]
-                     }
-                   ]
-                 }
-               ]
-             }" ${{ secrets.SLACK_WEBHOOK_URL }}
+                       },
+                       {
+                         \"type\": \"section\",
+                         \"fields\": [
+                           {
+                             \"type\": \"mrkdwn\",
+                             \"text\": \"*Reports:*\\n<${ALLURE_URL}|Allure Report>\\n<${JMETER_URL}|JMeter Report>\\n<${ZAP_URL}|ZAP Security Report>\\n<${CUCUMBER_URL}|Cucumber Report>\"
+                           },
+                           {
+                             \"type\": \"mrkdwn\",
+                             \"text\": \"*Build URL:*\n$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID\"
+                           }
+                         ]
+                       }
+                     ]
+                   }
+                 ]
+               }" ${{ secrets.SLACK_WEBHOOK_URL }}
