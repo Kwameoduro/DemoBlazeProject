@@ -1,8 +1,8 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.16.1",
-	"@generated": "Mon, 29 Sept 2025 07:50:53",
-	"created": "2025-09-29T07:50:53.063978491Z",
+	"@generated": "Mon, 29 Sept 2025 08:15:56",
+	"created": "2025-09-29T08:15:56.946199021Z",
 	"site":[ 
 		{
 			"@name": "https://www.demoblaze.com",
@@ -21,7 +21,7 @@
 					"desc": "<p>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page \u2014 covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</p>",
 					"instances":[ 
 						{
-							"id": "7",
+							"id": "9",
 							"uri": "https://www.demoblaze.com",
 							"method": "GET",
 							"param": "",
@@ -30,7 +30,290 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "37",
+							"id": "22",
+							"uri": "https://www.demoblaze.com/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "53",
+							"uri": "https://www.demoblaze.com/cart.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "31",
+							"uri": "https://www.demoblaze.com/index.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "1",
+							"uri": "https://www.demoblaze.com/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "2",
+							"uri": "https://www.demoblaze.com/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "6",
+					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
+					"cweid": "693",
+					"wascid": "15",
+					"sourceid": "6"
+				},
+				{
+					"pluginid": "10020",
+					"alertRef": "10020-1",
+					"alert": "Missing Anti-clickjacking Header",
+					"name": "Missing Anti-clickjacking Header",
+					"riskcode": "2",
+					"confidence": "2",
+					"riskdesc": "Medium (Medium)",
+					"desc": "<p>The response does not protect against 'ClickJacking' attacks. It should include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options.</p>",
+					"instances":[ 
+						{
+							"id": "20",
+							"uri": "https://www.demoblaze.com/",
+							"method": "GET",
+							"param": "x-frame-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "51",
+							"uri": "https://www.demoblaze.com/cart.html",
+							"method": "GET",
+							"param": "x-frame-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "29",
+							"uri": "https://www.demoblaze.com/index.html",
+							"method": "GET",
+							"param": "x-frame-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "3",
+					"solution": "<p>Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.</p><p>If you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Frame-Options</p>",
+					"cweid": "1021",
+					"wascid": "15",
+					"sourceid": "28"
+				},
+				{
+					"pluginid": "10003",
+					"alertRef": "10003",
+					"alert": "Vulnerable JS Library",
+					"name": "Vulnerable JS Library",
+					"riskcode": "2",
+					"confidence": "2",
+					"riskdesc": "Medium (Medium)",
+					"desc": "<p>The identified library appears to be vulnerable.</p>",
+					"instances":[ 
+						{
+							"id": "99",
+							"uri": "https://www.demoblaze.com/node_modules/jquery/dist/jquery.min.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/*! jQuery v3.2.1",
+							"otherinfo": "The identified library jquery, version 3.2.1 is vulnerable.\nCVE-2020-11023\nCVE-2020-11022\nCVE-2019-11358\nhttps://blog.jquery.com/2019/04/10/jquery-3-4-0-released/\nhttps://nvd.nist.gov/vuln/detail/CVE-2019-11358\nhttps://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b\nhttps://blog.jquery.com/2020/04/10/jquery-3-5-0-released/\n"
+						}
+					],
+					"count": "1",
+					"solution": "<p>Upgrade to the latest version of the affected library.</p>",
+					"otherinfo": "<p>The identified library jquery, version 3.2.1 is vulnerable.</p><p>CVE-2020-11023</p><p>CVE-2020-11022</p><p>CVE-2019-11358</p><p>https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2019-11358</p><p>https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b</p><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p>",
+					"reference": "<p>https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/</p>",
+					"cweid": "1395",
+					"wascid": "-1",
+					"sourceid": "46"
+				},
+				{
+					"pluginid": "90004",
+					"alertRef": "90004-1",
+					"alert": "Insufficient Site Isolation Against Spectre Vulnerability",
+					"name": "Insufficient Site Isolation Against Spectre Vulnerability",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>Cross-Origin-Resource-Policy header is an opt-in header designed to counter side-channels attacks like Spectre. Resource should be specifically set as shareable amongst different origins.</p>",
+					"instances":[ 
+						{
+							"id": "43",
+							"uri": "https://www.demoblaze.com",
+							"method": "GET",
+							"param": "Cross-Origin-Resource-Policy",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "72",
+							"uri": "https://www.demoblaze.com/",
+							"method": "GET",
+							"param": "Cross-Origin-Resource-Policy",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "67",
+							"uri": "https://www.demoblaze.com/cart.html",
+							"method": "GET",
+							"param": "Cross-Origin-Resource-Policy",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "59",
+							"uri": "https://www.demoblaze.com/favicon.ico",
+							"method": "GET",
+							"param": "Cross-Origin-Resource-Policy",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "38",
+							"uri": "https://www.demoblaze.com/index.html",
+							"method": "GET",
+							"param": "Cross-Origin-Resource-Policy",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "44",
+							"uri": "https://www.demoblaze.com",
+							"method": "GET",
+							"param": "Cross-Origin-Embedder-Policy",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "75",
+							"uri": "https://www.demoblaze.com/",
+							"method": "GET",
+							"param": "Cross-Origin-Embedder-Policy",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "71",
+							"uri": "https://www.demoblaze.com/cart.html",
+							"method": "GET",
+							"param": "Cross-Origin-Embedder-Policy",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "39",
+							"uri": "https://www.demoblaze.com/index.html",
+							"method": "GET",
+							"param": "Cross-Origin-Embedder-Policy",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "45",
+							"uri": "https://www.demoblaze.com",
+							"method": "GET",
+							"param": "Cross-Origin-Opener-Policy",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "76",
+							"uri": "https://www.demoblaze.com/",
+							"method": "GET",
+							"param": "Cross-Origin-Opener-Policy",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "74",
+							"uri": "https://www.demoblaze.com/cart.html",
+							"method": "GET",
+							"param": "Cross-Origin-Opener-Policy",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "40",
+							"uri": "https://www.demoblaze.com/index.html",
+							"method": "GET",
+							"param": "Cross-Origin-Opener-Policy",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "13",
+					"solution": "<p>Ensure that the application/web server sets the Cross-Origin-Resource-Policy header appropriately, and that it sets the Cross-Origin-Resource-Policy header to 'same-origin' for all web pages.</p><p>'same-site' is considered as less secured and should be avoided.</p><p>If resources must be shared, set the header to 'cross-origin'.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that supports the Cross-Origin-Resource-Policy header (https://caniuse.com/mdn-http_headers_cross-origin-resource-policy).</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy</p>",
+					"cweid": "693",
+					"wascid": "14",
+					"sourceid": "6"
+				},
+				{
+					"pluginid": "10063",
+					"alertRef": "10063-1",
+					"alert": "Permissions Policy Header Not Set",
+					"name": "Permissions Policy Header Not Set",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.</p>",
+					"instances":[ 
+						{
+							"id": "42",
+							"uri": "https://www.demoblaze.com",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "69",
 							"uri": "https://www.demoblaze.com/",
 							"method": "GET",
 							"param": "",
@@ -48,246 +331,17 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "33",
+							"id": "37",
 							"uri": "https://www.demoblaze.com/index.html",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						}
-					],
-					"count": "4",
-					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>",
-					"otherinfo": "",
-					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
-					"cweid": "693",
-					"wascid": "15",
-					"sourceid": "8"
-				},
-				{
-					"pluginid": "10020",
-					"alertRef": "10020-1",
-					"alert": "Missing Anti-clickjacking Header",
-					"name": "Missing Anti-clickjacking Header",
-					"riskcode": "2",
-					"confidence": "2",
-					"riskdesc": "Medium (Medium)",
-					"desc": "<p>The response does not protect against 'ClickJacking' attacks. It should include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options.</p>",
-					"instances":[ 
-						{
-							"id": "2",
-							"uri": "https://www.demoblaze.com",
-							"method": "GET",
-							"param": "x-frame-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						},
 						{
-							"id": "22",
-							"uri": "https://www.demoblaze.com/",
-							"method": "GET",
-							"param": "x-frame-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"id": "52",
-							"uri": "https://www.demoblaze.com/cart.html",
-							"method": "GET",
-							"param": "x-frame-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"id": "23",
-							"uri": "https://www.demoblaze.com/index.html",
-							"method": "GET",
-							"param": "x-frame-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						}
-					],
-					"count": "4",
-					"solution": "<p>Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.</p><p>If you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive.</p>",
-					"otherinfo": "",
-					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Frame-Options</p>",
-					"cweid": "1021",
-					"wascid": "15",
-					"sourceid": "1"
-				},
-				{
-					"pluginid": "10003",
-					"alertRef": "10003",
-					"alert": "Vulnerable JS Library",
-					"name": "Vulnerable JS Library",
-					"riskcode": "2",
-					"confidence": "2",
-					"riskdesc": "Medium (Medium)",
-					"desc": "<p>The identified library appears to be vulnerable.</p>",
-					"instances":[ 
-						{
-							"id": "95",
-							"uri": "https://www.demoblaze.com/node_modules/jquery/dist/jquery.min.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/*! jQuery v3.2.1",
-							"otherinfo": "The identified library jquery, version 3.2.1 is vulnerable.\nCVE-2020-11023\nCVE-2020-11022\nCVE-2019-11358\nhttps://blog.jquery.com/2019/04/10/jquery-3-4-0-released/\nhttps://nvd.nist.gov/vuln/detail/CVE-2019-11358\nhttps://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b\nhttps://blog.jquery.com/2020/04/10/jquery-3-5-0-released/\n"
-						}
-					],
-					"count": "1",
-					"solution": "<p>Upgrade to the latest version of the affected library.</p>",
-					"otherinfo": "<p>The identified library jquery, version 3.2.1 is vulnerable.</p><p>CVE-2020-11023</p><p>CVE-2020-11022</p><p>CVE-2019-11358</p><p>https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2019-11358</p><p>https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b</p><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p>",
-					"reference": "<p>https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/</p>",
-					"cweid": "1395",
-					"wascid": "-1",
-					"sourceid": "44"
-				},
-				{
-					"pluginid": "90004",
-					"alertRef": "90004-1",
-					"alert": "Insufficient Site Isolation Against Spectre Vulnerability",
-					"name": "Insufficient Site Isolation Against Spectre Vulnerability",
-					"riskcode": "1",
-					"confidence": "2",
-					"riskdesc": "Low (Medium)",
-					"desc": "<p>Cross-Origin-Resource-Policy header is an opt-in header designed to counter side-channels attacks like Spectre. Resource should be specifically set as shareable amongst different origins.</p>",
-					"instances":[ 
-						{
-							"id": "28",
-							"uri": "https://www.demoblaze.com",
-							"method": "GET",
-							"param": "Cross-Origin-Resource-Policy",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"id": "54",
-							"uri": "https://www.demoblaze.com/",
-							"method": "GET",
-							"param": "Cross-Origin-Resource-Policy",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"id": "44",
-							"uri": "https://www.demoblaze.com/index.html",
-							"method": "GET",
-							"param": "Cross-Origin-Resource-Policy",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"id": "29",
-							"uri": "https://www.demoblaze.com",
-							"method": "GET",
-							"param": "Cross-Origin-Embedder-Policy",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"id": "56",
-							"uri": "https://www.demoblaze.com/",
-							"method": "GET",
-							"param": "Cross-Origin-Embedder-Policy",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"id": "45",
-							"uri": "https://www.demoblaze.com/index.html",
-							"method": "GET",
-							"param": "Cross-Origin-Embedder-Policy",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"id": "31",
-							"uri": "https://www.demoblaze.com",
-							"method": "GET",
-							"param": "Cross-Origin-Opener-Policy",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"id": "57",
-							"uri": "https://www.demoblaze.com/",
-							"method": "GET",
-							"param": "Cross-Origin-Opener-Policy",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"id": "46",
-							"uri": "https://www.demoblaze.com/index.html",
-							"method": "GET",
-							"param": "Cross-Origin-Opener-Policy",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						}
-					],
-					"count": "9",
-					"solution": "<p>Ensure that the application/web server sets the Cross-Origin-Resource-Policy header appropriately, and that it sets the Cross-Origin-Resource-Policy header to 'same-origin' for all web pages.</p><p>'same-site' is considered as less secured and should be avoided.</p><p>If resources must be shared, set the header to 'cross-origin'.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that supports the Cross-Origin-Resource-Policy header (https://caniuse.com/mdn-http_headers_cross-origin-resource-policy).</p>",
-					"otherinfo": "",
-					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy</p>",
-					"cweid": "693",
-					"wascid": "14",
-					"sourceid": "8"
-				},
-				{
-					"pluginid": "10063",
-					"alertRef": "10063-1",
-					"alert": "Permissions Policy Header Not Set",
-					"name": "Permissions Policy Header Not Set",
-					"riskcode": "1",
-					"confidence": "2",
-					"riskdesc": "Low (Medium)",
-					"desc": "<p>Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.</p>",
-					"instances":[ 
-						{
-							"id": "27",
-							"uri": "https://www.demoblaze.com",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"id": "53",
-							"uri": "https://www.demoblaze.com/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"id": "80",
-							"uri": "https://www.demoblaze.com/cart.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"id": "43",
-							"uri": "https://www.demoblaze.com/index.html",
+							"id": "101",
+							"uri": "https://www.demoblaze.com/js/cart.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -305,15 +359,6 @@
 						},
 						{
 							"id": "97",
-							"uri": "https://www.demoblaze.com/node_modules/bootstrap-sweetalert/dist/sweetalert.min.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"id": "92",
 							"uri": "https://www.demoblaze.com/node_modules/bootstrap/dist/js/bootstrap.min.js",
 							"method": "GET",
 							"param": "",
@@ -322,7 +367,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "93",
+							"id": "98",
 							"uri": "https://www.demoblaze.com/node_modules/jquery/dist/jquery.min.js",
 							"method": "GET",
 							"param": "",
@@ -331,7 +376,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "91",
+							"id": "95",
 							"uri": "https://www.demoblaze.com/node_modules/tether/dist/js/tether.min.js",
 							"method": "GET",
 							"param": "",
@@ -340,7 +385,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "20",
+							"id": "7",
 							"uri": "https://www.demoblaze.com/robots.txt",
 							"method": "GET",
 							"param": "",
@@ -349,7 +394,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "21",
+							"id": "28",
 							"uri": "https://www.demoblaze.com/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -364,7 +409,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "8"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10035",
@@ -377,7 +422,7 @@
 					"desc": "<p>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.</p>",
 					"instances":[ 
 						{
-							"id": "14",
+							"id": "15",
 							"uri": "https://www.demoblaze.com",
 							"method": "GET",
 							"param": "",
@@ -386,7 +431,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "49",
+							"id": "25",
 							"uri": "https://www.demoblaze.com/",
 							"method": "GET",
 							"param": "",
@@ -395,7 +440,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "71",
+							"id": "61",
 							"uri": "https://www.demoblaze.com/cart.html",
 							"method": "GET",
 							"param": "",
@@ -404,7 +449,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "62",
+							"id": "65",
 							"uri": "https://www.demoblaze.com/css/latofonts.css",
 							"method": "GET",
 							"param": "",
@@ -413,7 +458,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "75",
+							"id": "79",
 							"uri": "https://www.demoblaze.com/css/latostyle.css",
 							"method": "GET",
 							"param": "",
@@ -422,7 +467,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "58",
+							"id": "55",
 							"uri": "https://www.demoblaze.com/favicon.ico",
 							"method": "GET",
 							"param": "",
@@ -431,7 +476,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "40",
+							"id": "34",
 							"uri": "https://www.demoblaze.com/index.html",
 							"method": "GET",
 							"param": "",
@@ -440,7 +485,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "83",
+							"id": "80",
 							"uri": "https://www.demoblaze.com/node_modules/bootstrap/dist/css/bootstrap.min.css",
 							"method": "GET",
 							"param": "",
@@ -449,7 +494,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "69",
+							"id": "84",
 							"uri": "https://www.demoblaze.com/node_modules/video.js/dist/video-js.min.css",
 							"method": "GET",
 							"param": "",
@@ -458,7 +503,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "4",
+							"id": "5",
 							"uri": "https://www.demoblaze.com/robots.txt",
 							"method": "GET",
 							"param": "",
@@ -467,7 +512,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "5",
+							"id": "4",
 							"uri": "https://www.demoblaze.com/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -482,7 +527,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>https://caniuse.com/stricttransportsecurity</p><p>https://datatracker.ietf.org/doc/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "8"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10021",
@@ -504,7 +549,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"id": "50",
+							"id": "26",
 							"uri": "https://www.demoblaze.com/",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -513,7 +558,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"id": "76",
+							"id": "62",
 							"uri": "https://www.demoblaze.com/cart.html",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -522,7 +567,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"id": "63",
+							"id": "70",
 							"uri": "https://www.demoblaze.com/css/latofonts.css",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -531,7 +576,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"id": "77",
+							"id": "81",
 							"uri": "https://www.demoblaze.com/css/latostyle.css",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -540,7 +585,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"id": "59",
+							"id": "56",
 							"uri": "https://www.demoblaze.com/favicon.ico",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -549,7 +594,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"id": "41",
+							"id": "35",
 							"uri": "https://www.demoblaze.com/index.html",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -558,8 +603,8 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"id": "86",
-							"uri": "https://www.demoblaze.com/node_modules/bootstrap/dist/css/bootstrap.min.css",
+							"id": "94",
+							"uri": "https://www.demoblaze.com/js/index.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -567,8 +612,8 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"id": "87",
-							"uri": "https://www.demoblaze.com/node_modules/jquery/dist/jquery.min.js",
+							"id": "88",
+							"uri": "https://www.demoblaze.com/node_modules/bootstrap/dist/css/bootstrap.min.css",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -585,7 +630,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"id": "73",
+							"id": "85",
 							"uri": "https://www.demoblaze.com/node_modules/video.js/dist/video-js.min.css",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -600,7 +645,7 @@
 					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10027",
@@ -613,7 +658,7 @@
 					"desc": "<p>The response appears to contain suspicious comments which may help an attacker.</p>",
 					"instances":[ 
 						{
-							"id": "82",
+							"id": "93",
 							"uri": "https://www.demoblaze.com/node_modules/jquery/dist/jquery.min.js",
 							"method": "GET",
 							"param": "",
@@ -622,7 +667,7 @@
 							"otherinfo": "The following pattern was used: \\bDB\\b and was detected in likely comment: \"//,Ib={},Jb={},Kb=\"*/\".concat(\"*\"),Lb=d.createElement(\"a\");Lb.href=tb.href;function Mb(a){return function(b,c){\"string\"!=typeof \", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"id": "98",
+							"id": "102",
 							"uri": "https://www.demoblaze.com/node_modules/video.js/dist/video.min.js",
 							"method": "GET",
 							"param": "",
@@ -631,7 +676,7 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in likely comment: \"//)){var t=h.createElement(\"div\");t.innerHTML='<a href=\"'+e+'\">x</a>',e=t.firstChild.href}return e}function Rt(e){if(\"string\"==t\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"id": "94",
+							"id": "100",
 							"uri": "https://www.demoblaze.com/node_modules/videojs-contrib-hls/dist/videojs-contrib-hls.min.js",
 							"method": "GET",
 							"param": "",
@@ -646,7 +691,7 @@
 					"reference": "",
 					"cweid": "615",
 					"wascid": "13",
-					"sourceid": "44"
+					"sourceid": "46"
 				},
 				{
 					"pluginid": "10109",
@@ -659,7 +704,7 @@
 					"desc": "<p>The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.</p>",
 					"instances":[ 
 						{
-							"id": "10",
+							"id": "12",
 							"uri": "https://www.demoblaze.com",
 							"method": "GET",
 							"param": "",
@@ -668,7 +713,7 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"id": "47",
+							"id": "23",
 							"uri": "https://www.demoblaze.com/",
 							"method": "GET",
 							"param": "",
@@ -677,7 +722,7 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"id": "68",
+							"id": "57",
 							"uri": "https://www.demoblaze.com/cart.html",
 							"method": "GET",
 							"param": "",
@@ -686,7 +731,7 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"id": "38",
+							"id": "32",
 							"uri": "https://www.demoblaze.com/index.html",
 							"method": "GET",
 							"param": "",
@@ -701,7 +746,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10015",
@@ -714,7 +759,7 @@
 					"desc": "<p>The cache-control header has not been set properly or is missing, allowing the browser and proxies to cache content. For static assets like css, js, or image files this might be intended, however, the resources should be reviewed to ensure that no sensitive content will be cached.</p>",
 					"instances":[ 
 						{
-							"id": "6",
+							"id": "8",
 							"uri": "https://www.demoblaze.com",
 							"method": "GET",
 							"param": "cache-control",
@@ -723,7 +768,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "36",
+							"id": "21",
 							"uri": "https://www.demoblaze.com/",
 							"method": "GET",
 							"param": "cache-control",
@@ -732,7 +777,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "65",
+							"id": "52",
 							"uri": "https://www.demoblaze.com/cart.html",
 							"method": "GET",
 							"param": "cache-control",
@@ -756,7 +801,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "8"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10050",
@@ -769,7 +814,7 @@
 					"desc": "<p>The content was retrieved from a shared cache. If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p>",
 					"instances":[ 
 						{
-							"id": "12",
+							"id": "14",
 							"uri": "https://www.demoblaze.com",
 							"method": "GET",
 							"param": "",
@@ -778,7 +823,7 @@
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
-							"id": "48",
+							"id": "24",
 							"uri": "https://www.demoblaze.com/",
 							"method": "GET",
 							"param": "",
@@ -787,7 +832,7 @@
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
-							"id": "70",
+							"id": "60",
 							"uri": "https://www.demoblaze.com/cart.html",
 							"method": "GET",
 							"param": "",
@@ -796,7 +841,7 @@
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
-							"id": "61",
+							"id": "63",
 							"uri": "https://www.demoblaze.com/css/latofonts.css",
 							"method": "GET",
 							"param": "",
@@ -805,7 +850,7 @@
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
-							"id": "72",
+							"id": "77",
 							"uri": "https://www.demoblaze.com/css/latostyle.css",
 							"method": "GET",
 							"param": "",
@@ -814,7 +859,7 @@
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
-							"id": "55",
+							"id": "54",
 							"uri": "https://www.demoblaze.com/favicon.ico",
 							"method": "GET",
 							"param": "",
@@ -823,7 +868,7 @@
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
-							"id": "39",
+							"id": "33",
 							"uri": "https://www.demoblaze.com/index.html",
 							"method": "GET",
 							"param": "",
@@ -832,7 +877,16 @@
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
-							"id": "81",
+							"id": "92",
+							"uri": "https://www.demoblaze.com/js/index.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Age: 0",
+							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
+						},
+						{
+							"id": "78",
 							"uri": "https://www.demoblaze.com/node_modules/bootstrap/dist/css/bootstrap.min.css",
 							"method": "GET",
 							"param": "",
@@ -841,16 +895,7 @@
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
-							"id": "84",
-							"uri": "https://www.demoblaze.com/node_modules/jquery/dist/jquery.min.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Age: 0",
-							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
-						},
-						{
-							"id": "85",
+							"id": "87",
 							"uri": "https://www.demoblaze.com/node_modules/tether/dist/js/tether.min.js",
 							"method": "GET",
 							"param": "",
@@ -859,7 +904,7 @@
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
-							"id": "67",
+							"id": "83",
 							"uri": "https://www.demoblaze.com/node_modules/video.js/dist/video-js.min.css",
 							"method": "GET",
 							"param": "",
@@ -874,7 +919,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.rfc-editor.org/rfc/rfc9110.html</p>",
 					"cweid": "525",
 					"wascid": "-1",
-					"sourceid": "8"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10049",
@@ -887,7 +932,7 @@
 					"desc": "<p>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users. If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where \"shared\" caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p>",
 					"instances":[ 
 						{
-							"id": "24",
+							"id": "41",
 							"uri": "https://www.demoblaze.com",
 							"method": "GET",
 							"param": "",
@@ -896,7 +941,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "51",
+							"id": "68",
 							"uri": "https://www.demoblaze.com/",
 							"method": "GET",
 							"param": "",
@@ -905,7 +950,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "78",
+							"id": "64",
 							"uri": "https://www.demoblaze.com/cart.html",
 							"method": "GET",
 							"param": "",
@@ -914,7 +959,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "64",
+							"id": "73",
 							"uri": "https://www.demoblaze.com/css/latofonts.css",
 							"method": "GET",
 							"param": "",
@@ -923,7 +968,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "79",
+							"id": "82",
 							"uri": "https://www.demoblaze.com/css/latostyle.css",
 							"method": "GET",
 							"param": "",
@@ -932,7 +977,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "60",
+							"id": "58",
 							"uri": "https://www.demoblaze.com/favicon.ico",
 							"method": "GET",
 							"param": "",
@@ -941,7 +986,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "42",
+							"id": "36",
 							"uri": "https://www.demoblaze.com/index.html",
 							"method": "GET",
 							"param": "",
@@ -959,8 +1004,8 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "88",
-							"uri": "https://www.demoblaze.com/node_modules/jquery/dist/jquery.min.js",
+							"id": "91",
+							"uri": "https://www.demoblaze.com/node_modules/tether/dist/js/tether.min.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -968,7 +1013,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "74",
+							"id": "86",
 							"uri": "https://www.demoblaze.com/node_modules/video.js/dist/video-js.min.css",
 							"method": "GET",
 							"param": "",
@@ -977,7 +1022,7 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "19",
+							"id": "6",
 							"uri": "https://www.demoblaze.com/robots.txt",
 							"method": "GET",
 							"param": "",
@@ -986,7 +1031,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"id": "18",
+							"id": "27",
 							"uri": "https://www.demoblaze.com/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -1001,7 +1046,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				}
 			]
 		}
