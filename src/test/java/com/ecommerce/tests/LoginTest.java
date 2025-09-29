@@ -13,6 +13,7 @@ import java.util.Map;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @Epic("E-Commerce Application")
 @Feature("Login")
+@Tag("smoke")
 public class LoginTest extends BaseTest {
 
     private static Map<String, Map<String, String>> testData;
