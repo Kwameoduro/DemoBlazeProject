@@ -193,12 +193,45 @@
             destination_dir: zap-report
 
     # ------------------------
+    # 6. DEPLOY CUCUMBER REPORT
+    # ------------------------
+    deploy-cucumber-report:
+      name: 🚀 Publish Cucumber Report
+      runs-on: ubuntu-latest
+      needs: ui-tests
+      if: always()
+
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+
+        - name: Download Cucumber report artifact
+          uses: actions/download-artifact@v4
+          with:
+            name: cucumber-report
+            path: cucumber-report
+
+        - name: Prepare Cucumber report for Pages
+          run: |
+            mkdir -p cucumber-report-publish
+            cp cucumber-report/cucumber-report.html cucumber-report-publish/index.html
+
+        - name: Deploy Cucumber report to GitHub Pages
+          uses: peaceiris/actions-gh-pages@v4
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: cucumber-report-publish
+            publish_branch: gh-pages
+            destination_dir: cucumber-report
+
+
+      # ------------------------
     # 7. SLACK NOTIFICATION
     # ------------------------
     notify-slack:
       name: 🔔 Slack Notification
       runs-on: ubuntu-latest
-      needs: [ ui-tests, performance, security, deploy-allure-report, deploy-jmeter-report, deploy-zap-report ]
+      needs: [ ui-tests, performance, security, deploy-allure-report, deploy-jmeter-report, deploy-zap-report, deploy-cucumber-report ]
       if: always()
 
       steps:
