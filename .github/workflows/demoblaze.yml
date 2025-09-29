@@ -277,7 +277,7 @@
             ALLURE_URL="$REPO_URL/allure-report/"
             JMETER_URL="$REPO_URL/jmeter-report/"
             ZAP_URL="$REPO_URL/zap-report/"
-            CUCUMBER_URL="$REPO_URL/cucumber-report/"
+            CUCUMBER_URL="$REPO_URL/cucumber-report/cucumber-report.html"
 
             curl -X POST -H 'Content-type: application/json' --data "{
                \"attachments\": [
