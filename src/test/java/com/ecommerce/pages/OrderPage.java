@@ -1,11 +1,11 @@
 package com.ecommerce.pages;
 
-
 import com.ecommerce.base.BasePage;
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
 
 public class OrderPage extends BasePage {
 
@@ -30,6 +30,9 @@ public class OrderPage extends BasePage {
     private final SelenideElement successTitle = $(".sweet-alert h2"); // "Thank you for your purchase!"
     private final SelenideElement successDetails = $(".sweet-alert p"); // contains ID, Amount, Card Number, Name
     private final SelenideElement okButton = $(".confirm.btn.btn-lg.btn-primary");
+
+    // ✅ Cart page Place Order button (not modal’s internal one)
+    private final SelenideElement cartPlaceOrderButton = $("button[data-target='#orderModal']");
 
     // === Actions (Order Modal) ===
     public boolean isOrderModalDisplayed() {
@@ -95,5 +98,11 @@ public class OrderPage extends BasePage {
 
     public void clickOkButton() {
         click(okButton);
+    }
+
+    // ✅ Fixed method — clicks the Cart page button and waits for modal
+    public void clickPlaceOrderFromCart() {
+        cartPlaceOrderButton.shouldBe(visible, enabled).click();
+        orderModal.shouldBe(visible); // wait until modal is actually displayed
     }
 }
