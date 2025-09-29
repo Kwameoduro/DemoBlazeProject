@@ -9,9 +9,6 @@
         - main
 
   jobs:
-    # ------------------------
-    # 1. BUILD
-    # ------------------------
     build:
       name: 🛠️ Build
       runs-on: ubuntu-latest
@@ -28,9 +25,6 @@
         - name: Build with Maven
           run: mvn clean install -DskipTests
 
-    # ------------------------
-    # 2. UI TESTS
-    # ------------------------
     ui-tests:
       name: 🧪 UI Tests
       runs-on: ubuntu-latest
@@ -60,9 +54,6 @@
             name: cucumber-report
             path: target/cucumber-report.html
 
-    # ------------------------
-    # 3. PERFORMANCE TESTS
-    # ------------------------
     performance:
       name: ⚡ Performance Tests
       runs-on: ubuntu-latest
@@ -82,9 +73,6 @@
             name: jmeter-report
             path: jmeter-report
 
-    # ------------------------
-    # 4. SECURITY TESTS
-    # ------------------------
     security:
       name: 🔒 Security Tests
       runs-on: ubuntu-latest
@@ -104,9 +92,6 @@
             name: zap-report
             path: zap-report
 
-    # ------------------------
-    # 5. DEPLOY ALLURE REPORT
-    # ------------------------
     deploy-allure-report:
       name: 🚀 Publish Allure Report
       runs-on: ubuntu-latest
@@ -135,9 +120,6 @@
             publish_branch: gh-pages
             destination_dir: allure-report
 
-    # ------------------------
-    # 6. DEPLOY JMETER REPORT
-    # ------------------------
     deploy-jmeter-report:
       name: 🚀 Publish JMeter Report
       runs-on: ubuntu-latest
@@ -161,9 +143,6 @@
             publish_branch: gh-pages
             destination_dir: jmeter-report
 
-    # ------------------------
-    # 7. DEPLOY ZAP REPORT
-    # ------------------------
     deploy-zap-report:
       name: 🚀 Publish ZAP Security Report
       runs-on: ubuntu-latest
@@ -187,9 +166,6 @@
             publish_branch: gh-pages
             destination_dir: zap-report
 
-    # ------------------------
-    # 8. DEPLOY CUCUMBER REPORT
-    # ------------------------
     deploy-cucumber-report:
       name: 🚀 Publish Cucumber Report
       runs-on: ubuntu-latest
@@ -218,9 +194,6 @@
             publish_branch: gh-pages
             destination_dir: cucumber-report
 
-    # ------------------------
-    # 9. SLACK NOTIFICATION
-    # ------------------------
     notify-slack:
       name: 🔔 Slack Notification
       runs-on: ubuntu-latest
@@ -256,10 +229,10 @@
                   "${{ needs.ui-tests.result }}" == "skipped" || \
                   "${{ needs.performance.result }}" == "skipped" || \
                   "${{ needs.security.result }}" == "skipped" ]]; then
-                STATUS="failed"
-                COLOR="danger"
-                EMOJI="❌"
-                TITLE="*DemoBlaze Testing Pipeline Failed*"
+              STATUS="failed"
+              COLOR="danger"
+              EMOJI="❌"
+              TITLE="*DemoBlaze Testing Pipeline Failed*"
             fi
             
             REPO_URL="https://kwameoduro.github.io/DemoBlazeProject"
@@ -297,4 +270,3 @@
                  }
                ]
              }" ${{ secrets.SLACK_WEBHOOK_URL }}
-    
