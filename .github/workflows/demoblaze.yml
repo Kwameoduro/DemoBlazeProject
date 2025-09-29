@@ -221,11 +221,10 @@
         - name: Checkout code
           uses: actions/checkout@v4
 
-        # 👇 Prepare Cucumber report for Pages
         - name: Prepare Cucumber report for Pages
           run: |
             mkdir -p cucumber-report
-            cp target/cucumber-report.html cucumber-report/index.html
+            cp target/cucumber-reports.html cucumber-report/index.html
 
         - name: Deploy Cucumber report to GitHub Pages
           uses: peaceiris/actions-gh-pages@v4
@@ -234,6 +233,7 @@
             publish_dir: cucumber-report
             publish_branch: gh-pages
             destination_dir: cucumber-report
+
 
 
 
