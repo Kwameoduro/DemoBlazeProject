@@ -35,12 +35,20 @@
             name: allure-results
             path: allure-results
 
-        - name: Upload Cucumber Report
+        - name: Upload Cucumber JSON
           if: always()
           uses: actions/upload-artifact@v4
           with:
-            name: cucumber-report
+            name: cucumber-json
+            path: target/cucumber.json
+
+        - name: Upload Cucumber HTML
+          if: always()
+          uses: actions/upload-artifact@v4
+          with:
+            name: cucumber-html
             path: target/cucumber-report.html
+
 
 
     # ------------------------
@@ -213,24 +221,34 @@
         - name: Checkout code
           uses: actions/checkout@v4
 
-        - name: Download Cucumber report artifact
+        - name: Download Cucumber JSON artifact
           uses: actions/download-artifact@v4
           with:
-            name: cucumber-report
+            name: cucumber-json
             path: cucumber-report
 
-        - name: Prepare Cucumber report for Pages
+        - name: Set up Node.js
+          uses: actions/setup-node@v4
+          with:
+            node-version: '20'
+
+        - name: Install cucumber-html-reporter
           run: |
-            mkdir -p cucumber-report-publish
-            cp cucumber-report/cucumber-report.html cucumber-report-publish/index.html
+            npm init -y
+            npm install cucumber-html-reporter --save-dev
+
+        - name: Generate Cucumber HTML report
+          run: node generate-cucumber-report.js
 
         - name: Deploy Cucumber report to GitHub Pages
           uses: peaceiris/actions-gh-pages@v4
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: cucumber-report-publish
+            publish_dir: cucumber-report
             publish_branch: gh-pages
             destination_dir: cucumber-report
+            force_orphan: false
+
 
       # ------------------------
     # 7. SLACK NOTIFICATION
@@ -248,7 +266,7 @@
             COLOR="good"
             EMOJI="✅"
             TITLE="*DemoBlaze Testing Pipeline Passed*"
-            
+
             if [[ "${{ needs.ui-tests.result }}" == "failure" || \
                   "${{ needs.performance.result }}" == "failure" || \
                   "${{ needs.security.result }}" == "failure" ]]; then
@@ -257,7 +275,7 @@
               EMOJI="⚠️"
               TITLE="*DemoBlaze Testing Pipeline Completed with Failures*"
             fi
-            
+
             if [[ "${{ needs.ui-tests.result }}" == "cancelled" || \
                   "${{ needs.performance.result }}" == "cancelled" || \
                   "${{ needs.security.result }}" == "cancelled" || \
@@ -269,12 +287,13 @@
                EMOJI="❌"
                TITLE="*DemoBlaze Testing Pipeline Failed*"
             fi
-            
+
             REPO_URL="https://kwameoduro.github.io/DemoBlazeProject"
             ALLURE_URL="$REPO_URL/allure-report/"
             JMETER_URL="$REPO_URL/jmeter-report/"
             ZAP_URL="$REPO_URL/zap-report/"
-            
+            CUCUMBER_URL="$REPO_URL/cucumber-report/"
+
             curl -X POST -H 'Content-type: application/json' --data "{
                \"attachments\": [
                  {
@@ -284,7 +303,7 @@
                        \"type\": \"section\",
                        \"text\": {
                          \"type\": \"mrkdwn\",
-                         \"text\": \"$EMOJI $TITLE\n*Status:* $STATUS\"
+                         \"text\": \"$EMOJI $TITLE\n*Status:* $STATUS\" 
                        }
                      },
                      {
@@ -292,7 +311,7 @@
                        \"fields\": [
                          {
                            \"type\": \"mrkdwn\",
-                           \"text\": \"*Reports:*\\n<${ALLURE_URL}|Allure Report>\\n<${JMETER_URL}|JMeter Report>\\n<${ZAP_URL}|ZAP Security Report>\"
+                           \"text\": \"*Reports:*\\n<${ALLURE_URL}|Allure Report>\\n<${JMETER_URL}|JMeter Report>\\n<${ZAP_URL}|ZAP Security Report>\\n<${CUCUMBER_URL}|Cucumber Report>\"
                          },
                          {
                            \"type\": \"mrkdwn\",
