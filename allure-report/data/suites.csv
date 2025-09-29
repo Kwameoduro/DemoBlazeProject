@@ -1,102 +1,102 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"failed","Mon Sep 29 07:37:47 UTC 2025","Mon Sep 29 07:37:53 UTC 2025","6101","","com.ecommerce.tests.ContactPageTest","","com.ecommerce.tests.ContactPageTest","testContactModalOpens","testContactModalOpens()","Verify the Contact modal opens and displays correct title"
-"failed","Mon Sep 29 07:35:21 UTC 2025","Mon Sep 29 07:35:27 UTC 2025","6168","","com.ecommerce.tests.SignupTest","","com.ecommerce.tests.SignupTest","testValidSignup","testValidSignup()","Verify successful signup with valid credentials"
-"passed","Mon Sep 29 07:35:35 UTC 2025","Mon Sep 29 07:35:39 UTC 2025","4303","","com.ecommerce.tests.OrderPageTest","","com.ecommerce.tests.OrderPageTest","testSuccessModalDisplayed","testSuccessModalDisplayed()","Verify that the success modal is displayed after clicking purchase"
-"passed","Mon Sep 29 07:38:44 UTC 2025","Mon Sep 29 07:38:46 UTC 2025","2526","","Shopping Cart","","Delete a product from cart","","Delete a product from cart","  As a customer
-  I want to manage products in my cart
-  So that I can review or remove items before purchase"
-"failed","Mon Sep 29 07:36:46 UTC 2025","Mon Sep 29 07:36:52 UTC 2025","5941","","com.ecommerce.tests.LoginTest","","com.ecommerce.tests.LoginTest","testXSSLogin","testXSSLogin()","Verify login fails with XSS attempt"
-"failed","Mon Sep 29 07:36:27 UTC 2025","Mon Sep 29 07:36:34 UTC 2025","6133","","com.ecommerce.tests.LoginTest","","com.ecommerce.tests.LoginTest","testEmptyPassword","testEmptyPassword()","Verify login fails with empty password"
-"passed","Mon Sep 29 07:39:07 UTC 2025","Mon Sep 29 07:39:08 UTC 2025","842","","Homepage","","Verify homepage slider","","Verify homepage slider","  As a Customer
+"passed","Mon Sep 29 07:47:48 UTC 2025","Mon Sep 29 07:47:48 UTC 2025","963","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testProductsAreDisplayed","testProductsAreDisplayed()","Verify products are displayed on the homepage (count > 0)"
+"passed","Mon Sep 29 07:47:50 UTC 2025","Mon Sep 29 07:47:51 UTC 2025","1444","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testClickProductOpensDetailPage","testClickProductOpensDetailPage()","Verify clicking a product opens its Product Detail Page"
+"passed","Mon Sep 29 07:47:48 UTC 2025","Mon Sep 29 07:47:50 UTC 2025","1524","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testEachProductHasTitleAndPrice","testEachProductHasTitleAndPrice()","Verify each product card has a title and a price"
+"failed","Mon Sep 29 07:46:58 UTC 2025","Mon Sep 29 07:47:04 UTC 2025","5916","","com.ecommerce.tests.LoginTest","","com.ecommerce.tests.LoginTest","testXSSLogin","testXSSLogin()","Verify login fails with XSS attempt"
+"failed","Mon Sep 29 07:49:32 UTC 2025","Mon Sep 29 07:49:45 UTC 2025","12973","","Place Order (Checkout)","","Place order with valid details","","Place order with valid details","  As a Customer
+  I want to place an order
+  So that I receive a confirmation of my purchase"
+"passed","Mon Sep 29 07:45:56 UTC 2025","Mon Sep 29 07:46:00 UTC 2025","3564","","com.ecommerce.tests.OrderPageTest","","com.ecommerce.tests.OrderPageTest","testEmptyNameOrderSubmission","testEmptyNameOrderSubmission()","Verify that submitting an order with empty name triggers an alert"
+"failed","Mon Sep 29 07:47:04 UTC 2025","Mon Sep 29 07:47:10 UTC 2025","6114","","com.ecommerce.tests.AboutUsPageTest","","com.ecommerce.tests.AboutUsPageTest","testOpenAboutUsModal","testOpenAboutUsModal()","Verify About Us modal opens and is displayed with correct title"
+"failed","Mon Sep 29 07:49:16 UTC 2025","Mon Sep 29 07:49:17 UTC 2025","756","","Homepage","","Verify homepage navigation menu","","Verify homepage navigation menu","  As a Customer
   I want to access the Product Store homepage
   So that I can browse available products"
-"failed","Mon Sep 29 07:38:11 UTC 2025","Mon Sep 29 07:38:17 UTC 2025","6114","","com.ecommerce.tests.ContactPageTest","","com.ecommerce.tests.ContactPageTest","testSubmitWithoutMessage","testSubmitWithoutMessage()","Attempt to submit message with missing message body"
-"failed","Mon Sep 29 07:35:53 UTC 2025","Mon Sep 29 07:35:59 UTC 2025","6139","","com.ecommerce.tests.CartPageTest","","com.ecommerce.tests.CartPageTest","testPlaceOrderButtonIsVisible","testPlaceOrderButtonIsVisible()","Verify that 'Place Order' button is visible on cart page"
-"failed","Mon Sep 29 07:36:10 UTC 2025","Mon Sep 29 07:36:16 UTC 2025","5958","","com.ecommerce.tests.LoginTest","","com.ecommerce.tests.LoginTest","testInvalidPassword","testInvalidPassword()","Verify login fails with invalid password"
-"failed","Mon Sep 29 07:37:18 UTC 2025","Mon Sep 29 07:37:24 UTC 2025","6131","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testUserLoggedInState","testUserLoggedInState()","Verify user can log in and welcome message is displayed"
-"passed","Mon Sep 29 07:36:01 UTC 2025","Mon Sep 29 07:36:04 UTC 2025","2440","","com.ecommerce.tests.CartPageTest","","com.ecommerce.tests.CartPageTest","testDeleteProductFromCart","testDeleteProductFromCart()","Verify that a product can be deleted from the cart"
-"failed","Mon Sep 29 07:37:04 UTC 2025","Mon Sep 29 07:37:10 UTC 2025","6116","","com.ecommerce.tests.AboutUsPageTest","","com.ecommerce.tests.AboutUsPageTest","testCloseModalWithCloseButton","testCloseModalWithCloseButton()","Verify Close button is visible and can close the modal"
-"failed","Mon Sep 29 07:37:53 UTC 2025","Mon Sep 29 07:37:59 UTC 2025","5993","","com.ecommerce.tests.ContactPageTest","","com.ecommerce.tests.ContactPageTest","testSubmitValidMessage","testSubmitValidMessage()","Submit contact form with valid data"
-"passed","Mon Sep 29 07:37:40 UTC 2025","Mon Sep 29 07:37:42 UTC 2025","1292","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testProductPriceFormat","testProductPriceFormat()","Verify product prices display in expected format ($<amount>)"
-"failed","Mon Sep 29 07:38:35 UTC 2025","Mon Sep 29 07:38:41 UTC 2025","6065","","com.ecommerce.tests.ContactPageTest","","com.ecommerce.tests.ContactPageTest","testCloseModalWithCloseIcon","testCloseModalWithCloseIcon()","Verify the Contact modal can be closed with the top-right X icon"
-"passed","Mon Sep 29 07:37:35 UTC 2025","Mon Sep 29 07:37:36 UTC 2025","1027","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testProductsAreDisplayed","testProductsAreDisplayed()","Verify products are displayed on the homepage (count > 0)"
-"passed","Mon Sep 29 07:39:03 UTC 2025","Mon Sep 29 07:39:04 UTC 2025","1563","","Homepage","","Navigate to product detail page","","Navigate to product detail page","  As a Customer
+"failed","Mon Sep 29 07:44:45 UTC 2025","Mon Sep 29 07:44:52 UTC 2025","7309","","com.ecommerce.tests.SignupTest","","com.ecommerce.tests.SignupTest","testShortPassword","testShortPassword()","Verify signup fails with short password"
+"failed","Mon Sep 29 07:48:17 UTC 2025","Mon Sep 29 07:48:23 UTC 2025","5893","","com.ecommerce.tests.ContactPageTest","","com.ecommerce.tests.ContactPageTest","testSubmitWithoutName","testSubmitWithoutName()","Attempt to submit message with missing name"
+"failed","Mon Sep 29 07:46:23 UTC 2025","Mon Sep 29 07:46:28 UTC 2025","5927","","com.ecommerce.tests.LoginTest","","com.ecommerce.tests.LoginTest","testInvalidPassword","testInvalidPassword()","Verify login fails with invalid password"
+"failed","Mon Sep 29 07:45:16 UTC 2025","Mon Sep 29 07:45:22 UTC 2025","5969","","com.ecommerce.tests.SignupTest","","com.ecommerce.tests.SignupTest","testEmptyPassword","testEmptyPassword()","Verify signup fails with empty password"
+"failed","Mon Sep 29 07:47:31 UTC 2025","Mon Sep 29 07:47:37 UTC 2025","5940","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testUserLoggedInState","testUserLoggedInState()","Verify user can log in and welcome message is displayed"
+"failed","Mon Sep 29 07:46:34 UTC 2025","Mon Sep 29 07:46:40 UTC 2025","6066","","com.ecommerce.tests.LoginTest","","com.ecommerce.tests.LoginTest","testEmptyUsername","testEmptyUsername()","Verify login fails with empty username"
+"failed","Mon Sep 29 07:48:46 UTC 2025","Mon Sep 29 07:48:52 UTC 2025","6016","","com.ecommerce.tests.ContactPageTest","","com.ecommerce.tests.ContactPageTest","testCloseModalWithCloseIcon","testCloseModalWithCloseIcon()","Verify the Contact modal can be closed with the top-right X icon"
+"passed","Mon Sep 29 07:49:45 UTC 2025","Mon Sep 29 07:49:48 UTC 2025","2662","","Place Order (Checkout)","","Try to place order with missing credit card","","Try to place order with missing credit card","  As a Customer
+  I want to place an order
+  So that I receive a confirmation of my purchase"
+"passed","Mon Sep 29 07:47:57 UTC 2025","Mon Sep 29 07:47:58 UTC 2025","1028","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testNextButtonVisibleWhenMultiplePagesExist","testNextButtonVisibleWhenMultiplePagesExist()","Verify Next button is visible when multiple pages exist"
+"passed","Mon Sep 29 07:45:46 UTC 2025","Mon Sep 29 07:45:49 UTC 2025","2643","","com.ecommerce.tests.OrderPageTest","","com.ecommerce.tests.OrderPageTest","testOrderModalTotalAmount","testOrderModalTotalAmount()","Verify that the total amount displayed in the modal matches the cart total"
+"passed","Mon Sep 29 07:47:47 UTC 2025","Mon Sep 29 07:47:47 UTC 2025","910","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testSelectMonitorsCategory","testSelectMonitorsCategory()","Verify Monitors category filters products correctly"
+"failed","Mon Sep 29 07:47:37 UTC 2025","Mon Sep 29 07:47:43 UTC 2025","5904","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testUserLoggedOutState","testUserLoggedOutState()","Verify logout state restores login and signup links"
+"failed","Mon Sep 29 07:46:46 UTC 2025","Mon Sep 29 07:46:52 UTC 2025","6068","","com.ecommerce.tests.LoginTest","","com.ecommerce.tests.LoginTest","testEmptyCredentials","testEmptyCredentials()","Verify login fails with both username and password empty"
+"passed","Mon Sep 29 07:47:54 UTC 2025","Mon Sep 29 07:47:55 UTC 2025","1388","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testNextButtonNavigatesToNextPage","testNextButtonNavigatesToNextPage()","Verify Next button navigates to the next product page"
+"failed","Mon Sep 29 07:45:34 UTC 2025","Mon Sep 29 07:45:40 UTC 2025","6030","","com.ecommerce.tests.SignupTest","","com.ecommerce.tests.SignupTest","testValidSignup","testValidSignup()","Verify successful signup with valid credentials"
+"passed","Mon Sep 29 07:47:51 UTC 2025","Mon Sep 29 07:47:52 UTC 2025","959","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testFirstPageLoadsMaxNineProducts","testFirstPageLoadsMaxNineProducts()","Verify the first page loads a maximum of 9 products"
+"passed","Mon Sep 29 07:49:18 UTC 2025","Mon Sep 29 07:49:19 UTC 2025","851","","Homepage","","Verify categories section","","Verify categories section","  As a Customer
   I want to access the Product Store homepage
   So that I can browse available products"
-"failed","Mon Sep 29 07:35:02 UTC 2025","Mon Sep 29 07:35:09 UTC 2025","6172","","com.ecommerce.tests.SignupTest","","com.ecommerce.tests.SignupTest","testEmptyPassword","testEmptyPassword()","Verify signup fails with empty password"
-"passed","Mon Sep 29 07:35:30 UTC 2025","Mon Sep 29 07:35:32 UTC 2025","2893","","com.ecommerce.tests.OrderPageTest","","com.ecommerce.tests.OrderPageTest","testOrderModalTitle","testOrderModalTitle()","Verify that the modal title is correct"
-"passed","Mon Sep 29 07:38:42 UTC 2025","Mon Sep 29 07:38:44 UTC 2025","2363","","Shopping Cart","","View products in cart","","View products in cart","  As a customer
-  I want to manage products in my cart
-  So that I can review or remove items before purchase"
-"failed","Mon Sep 29 07:34:56 UTC 2025","Mon Sep 29 07:35:02 UTC 2025","6190","","com.ecommerce.tests.SignupTest","","com.ecommerce.tests.SignupTest","testShortUsernameAndPassword","testShortUsernameAndPassword()","Verify signup fails with too short username and password"
-"failed","Mon Sep 29 07:35:47 UTC 2025","Mon Sep 29 07:35:53 UTC 2025","5959","","com.ecommerce.tests.CartPageTest","","com.ecommerce.tests.CartPageTest","testCartPageLoadsSuccessfully","testCartPageLoadsSuccessfully()","Verify that the cart page loads successfully"
-"passed","Mon Sep 29 07:37:34 UTC 2025","Mon Sep 29 07:37:35 UTC 2025","932","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testSelectMonitorsCategory","testSelectMonitorsCategory()","Verify Monitors category filters products correctly"
-"failed","Mon Sep 29 07:34:50 UTC 2025","Mon Sep 29 07:34:56 UTC 2025","6040","","com.ecommerce.tests.SignupTest","","com.ecommerce.tests.SignupTest","testEmptyUsername","testEmptyUsername()","Verify signup fails with empty username"
-"passed","Mon Sep 29 07:38:46 UTC 2025","Mon Sep 29 07:38:48 UTC 2025","1917","","Contact form","","Send a contact message successfully","","Send a contact message successfully","  As a customer
+"failed","Mon Sep 29 07:48:35 UTC 2025","Mon Sep 29 07:48:41 UTC 2025","5880","","com.ecommerce.tests.ContactPageTest","","com.ecommerce.tests.ContactPageTest","testSubmitWithInvalidEmail","testSubmitWithInvalidEmail()","Attempt to submit message with invalid email"
+"failed","Mon Sep 29 07:44:52 UTC 2025","Mon Sep 29 07:44:58 UTC 2025","6021","","com.ecommerce.tests.SignupTest","","com.ecommerce.tests.SignupTest","testSpecialCharsUsername","testSpecialCharsUsername()","Verify signup with username containing special characters"
+"passed","Mon Sep 29 07:49:13 UTC 2025","Mon Sep 29 07:49:15 UTC 2025","1515","","Homepage","","Navigate to product detail page","","Navigate to product detail page","  As a Customer
+  I want to access the Product Store homepage
+  So that I can browse available products"
+"failed","Mon Sep 29 07:47:10 UTC 2025","Mon Sep 29 07:47:17 UTC 2025","6099","","com.ecommerce.tests.AboutUsPageTest","","com.ecommerce.tests.AboutUsPageTest","testModalContainsMedia","testModalContainsMedia()","Verify About Us modal contains video/media content"
+"failed","Mon Sep 29 07:49:19 UTC 2025","Mon Sep 29 07:49:32 UTC 2025","13007","","Place Order (Checkout)","","Place order with valid details","","Place order with valid details","  As a Customer
+  I want to place an order
+  So that I receive a confirmation of my purchase"
+"passed","Mon Sep 29 07:49:15 UTC 2025","Mon Sep 29 07:49:16 UTC 2025","1648","","Homepage","","Navigate to product detail page","","Navigate to product detail page","  As a Customer
+  I want to access the Product Store homepage
+  So that I can browse available products"
+"passed","Mon Sep 29 07:47:29 UTC 2025","Mon Sep 29 07:47:30 UTC 2025","1126","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testNavbarLinksLoggedOut","testNavbarLinksLoggedOut()","Verify navbar links are visible when user is logged out"
+"passed","Mon Sep 29 07:48:57 UTC 2025","Mon Sep 29 07:48:59 UTC 2025","1824","","Contact form","","Send a contact message successfully","","Send a contact message successfully","  As a customer
   I want to use the Contact form
   So that I can send a message to the store"
-"passed","Mon Sep 29 07:37:34 UTC 2025","Mon Sep 29 07:37:34 UTC 2025","901","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testSelectLaptopsCategory","testSelectLaptopsCategory()","Verify Laptops category filters products correctly"
-"failed","Mon Sep 29 07:34:31 UTC 2025","Mon Sep 29 07:34:38 UTC 2025","7306","","com.ecommerce.tests.SignupTest","","com.ecommerce.tests.SignupTest","testShortPassword","testShortPassword()","Verify signup fails with short password"
-"passed","Mon Sep 29 07:39:08 UTC 2025","Mon Sep 29 07:39:08 UTC 2025","848","","Homepage","","Verify categories section","","Verify categories section","  As a Customer
-  I want to access the Product Store homepage
-  So that I can browse available products"
-"failed","Mon Sep 29 07:37:46 UTC 2025","Mon Sep 29 07:37:47 UTC 2025","1015","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testPreviousButtonHiddenOnFirstPage","testPreviousButtonHiddenOnFirstPage()","Verify Previous button is hidden on the first page"
-"passed","Mon Sep 29 07:37:38 UTC 2025","Mon Sep 29 07:37:39 UTC 2025","1454","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testClickProductOpensDetailPage","testClickProductOpensDetailPage()","Verify clicking a product opens its Product Detail Page"
-"passed","Mon Sep 29 07:37:33 UTC 2025","Mon Sep 29 07:37:34 UTC 2025","915","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testSelectPhonesCategory","testSelectPhonesCategory()","Verify Phones category filters products correctly"
-"passed","Mon Sep 29 07:37:45 UTC 2025","Mon Sep 29 07:37:46 UTC 2025","1019","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testNextButtonVisibleWhenMultiplePagesExist","testNextButtonVisibleWhenMultiplePagesExist()","Verify Next button is visible when multiple pages exist"
-"failed","Mon Sep 29 07:35:15 UTC 2025","Mon Sep 29 07:35:21 UTC 2025","6016","","com.ecommerce.tests.SignupTest","","com.ecommerce.tests.SignupTest","testSqlInjectionAttempt","testSqlInjectionAttempt()","Verify signup fails with SQL injection attempt in username"
-"passed","Mon Sep 29 07:39:16 UTC 2025","Mon Sep 29 07:39:18 UTC 2025","2733","","Place Order (Checkout)","","Try to place order with missing credit card","","Try to place order with missing credit card","  As a Customer
-  I want to place an order
-  So that I receive a confirmation of my purchase"
-"passed","Mon Sep 29 07:37:30 UTC 2025","Mon Sep 29 07:37:31 UTC 2025","787","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testSliderIsDisplayed","testSliderIsDisplayed()","Verify slider is displayed on the homepage"
-"passed","Mon Sep 29 07:37:31 UTC 2025","Mon Sep 29 07:37:32 UTC 2025","747","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testSliderImageCount","testSliderImageCount()","Verify slider has at least the expected number of images"
-"passed","Mon Sep 29 07:37:39 UTC 2025","Mon Sep 29 07:37:40 UTC 2025","993","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testFirstPageLoadsMaxNineProducts","testFirstPageLoadsMaxNineProducts()","Verify the first page loads a maximum of 9 products"
-"failed","Mon Sep 29 07:37:24 UTC 2025","Mon Sep 29 07:37:30 UTC 2025","5928","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testUserLoggedOutState","testUserLoggedOutState()","Verify logout state restores login and signup links"
-"passed","Mon Sep 29 07:37:17 UTC 2025","Mon Sep 29 07:37:18 UTC 2025","841","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testAuthLinksVisibleLoggedOut","testAuthLinksVisibleLoggedOut()","Verify login and signup links are visible when logged out"
-"failed","Mon Sep 29 07:34:44 UTC 2025","Mon Sep 29 07:34:50 UTC 2025","6067","","com.ecommerce.tests.SignupTest","","com.ecommerce.tests.SignupTest","testLongUsername","testLongUsername()","Verify signup fails with very long username"
-"failed","Mon Sep 29 07:38:29 UTC 2025","Mon Sep 29 07:38:35 UTC 2025","6043","","com.ecommerce.tests.ContactPageTest","","com.ecommerce.tests.ContactPageTest","testCloseModalWithCloseButton","testCloseModalWithCloseButton()","Verify the Contact modal can be closed with the Close button"
-"passed","Mon Sep 29 07:39:01 UTC 2025","Mon Sep 29 07:39:03 UTC 2025","1523","","Homepage","","Navigate to product detail page","","Navigate to product detail page","  As a Customer
-  I want to access the Product Store homepage
-  So that I can browse available products"
-"failed","Mon Sep 29 07:36:58 UTC 2025","Mon Sep 29 07:37:04 UTC 2025","6062","","com.ecommerce.tests.AboutUsPageTest","","com.ecommerce.tests.AboutUsPageTest","testModalContainsMedia","testModalContainsMedia()","Verify About Us modal contains video/media content"
-"failed","Mon Sep 29 07:36:34 UTC 2025","Mon Sep 29 07:36:40 UTC 2025","6128","","com.ecommerce.tests.LoginTest","","com.ecommerce.tests.LoginTest","testEmptyCredentials","testEmptyCredentials()","Verify login fails with both username and password empty"
-"failed","Mon Sep 29 07:36:52 UTC 2025","Mon Sep 29 07:36:58 UTC 2025","6185","","com.ecommerce.tests.AboutUsPageTest","","com.ecommerce.tests.AboutUsPageTest","testOpenAboutUsModal","testOpenAboutUsModal()","Verify About Us modal opens and is displayed with correct title"
-"failed","Mon Sep 29 07:37:59 UTC 2025","Mon Sep 29 07:38:05 UTC 2025","6028","","com.ecommerce.tests.ContactPageTest","","com.ecommerce.tests.ContactPageTest","testSubmitWithoutEmail","testSubmitWithoutEmail()","Attempt to submit message with missing email"
-"passed","Mon Sep 29 07:37:36 UTC 2025","Mon Sep 29 07:37:38 UTC 2025","1595","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testEachProductHasTitleAndPrice","testEachProductHasTitleAndPrice()","Verify each product card has a title and a price"
-"failed","Mon Sep 29 07:36:04 UTC 2025","Mon Sep 29 07:36:10 UTC 2025","6096","","com.ecommerce.tests.LoginTest","","com.ecommerce.tests.LoginTest","testValidLogin","testValidLogin()","Verify successful login with valid credentials"
-"passed","Mon Sep 29 07:35:39 UTC 2025","Mon Sep 29 07:35:43 UTC 2025","3497","","com.ecommerce.tests.OrderPageTest","","com.ecommerce.tests.OrderPageTest","testEmptyOrderSubmission","testEmptyOrderSubmission()","Verify that submitting an order with empty fields triggers an alert"
-"passed","Mon Sep 29 07:39:08 UTC 2025","Mon Sep 29 07:39:12 UTC 2025","3580","","Place Order (Checkout)","","Place order with valid details","","Place order with valid details","  As a Customer
-  I want to place an order
-  So that I receive a confirmation of my purchase"
-"failed","Mon Sep 29 07:39:06 UTC 2025","Mon Sep 29 07:39:07 UTC 2025","817","","Homepage","","Verify homepage navigation menu","","Verify homepage navigation menu","  As a Customer
-  I want to access the Product Store homepage
-  So that I can browse available products"
-"failed","Mon Sep 29 07:37:10 UTC 2025","Mon Sep 29 07:37:16 UTC 2025","6125","","com.ecommerce.tests.AboutUsPageTest","","com.ecommerce.tests.AboutUsPageTest","testCloseModalWithCloseIcon","testCloseModalWithCloseIcon()","Verify Close icon (X) closes the modal"
-"failed","Mon Sep 29 07:36:40 UTC 2025","Mon Sep 29 07:36:46 UTC 2025","6054","","com.ecommerce.tests.LoginTest","","com.ecommerce.tests.LoginTest","testSQLInjectionLogin","testSQLInjectionLogin()","Verify login fails with SQL Injection attempt"
-"passed","Mon Sep 29 07:39:04 UTC 2025","Mon Sep 29 07:39:06 UTC 2025","1703","","Homepage","","Navigate to product detail page","","Navigate to product detail page","  As a Customer
-  I want to access the Product Store homepage
-  So that I can browse available products"
-"failed","Mon Sep 29 07:38:05 UTC 2025","Mon Sep 29 07:38:11 UTC 2025","6090","","com.ecommerce.tests.ContactPageTest","","com.ecommerce.tests.ContactPageTest","testSubmitWithoutName","testSubmitWithoutName()","Attempt to submit message with missing name"
-"passed","Mon Sep 29 07:39:12 UTC 2025","Mon Sep 29 07:39:16 UTC 2025","3578","","Place Order (Checkout)","","Place order with valid details","","Place order with valid details","  As a Customer
-  I want to place an order
-  So that I receive a confirmation of my purchase"
-"passed","Mon Sep 29 07:37:16 UTC 2025","Mon Sep 29 07:37:17 UTC 2025","1102","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testNavbarLinksLoggedOut","testNavbarLinksLoggedOut()","Verify navbar links are visible when user is logged out"
-"failed","Mon Sep 29 07:36:22 UTC 2025","Mon Sep 29 07:36:27 UTC 2025","5918","","com.ecommerce.tests.LoginTest","","com.ecommerce.tests.LoginTest","testEmptyUsername","testEmptyUsername()","Verify login fails with empty username"
-"failed","Mon Sep 29 07:38:17 UTC 2025","Mon Sep 29 07:38:23 UTC 2025","5908","","com.ecommerce.tests.ContactPageTest","","com.ecommerce.tests.ContactPageTest","testSubmitWithAllEmptyFields","testSubmitWithAllEmptyFields()","Attempt to submit form with all fields empty"
-"failed","Mon Sep 29 07:36:16 UTC 2025","Mon Sep 29 07:36:22 UTC 2025","5929","","com.ecommerce.tests.LoginTest","","com.ecommerce.tests.LoginTest","testInvalidUsername","testInvalidUsername()","Verify login fails with invalid username"
-"passed","Mon Sep 29 07:35:59 UTC 2025","Mon Sep 29 07:36:01 UTC 2025","2196","","com.ecommerce.tests.CartPageTest","","com.ecommerce.tests.CartPageTest","testAddSingleProductToCart","testAddSingleProductToCart()","Verify that a single product can be added to the cart"
-"passed","Mon Sep 29 07:37:42 UTC 2025","Mon Sep 29 07:37:43 UTC 2025","1397","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testNextButtonNavigatesToNextPage","testNextButtonNavigatesToNextPage()","Verify Next button navigates to the next product page"
-"failed","Mon Sep 29 07:38:23 UTC 2025","Mon Sep 29 07:38:29 UTC 2025","6055","","com.ecommerce.tests.ContactPageTest","","com.ecommerce.tests.ContactPageTest","testSubmitWithInvalidEmail","testSubmitWithInvalidEmail()","Attempt to submit message with invalid email"
-"passed","Mon Sep 29 07:35:43 UTC 2025","Mon Sep 29 07:35:47 UTC 2025","3804","","com.ecommerce.tests.OrderPageTest","","com.ecommerce.tests.OrderPageTest","testEmptyNameOrderSubmission","testEmptyNameOrderSubmission()","Verify that submitting an order with empty name triggers an alert"
-"passed","Mon Sep 29 07:35:32 UTC 2025","Mon Sep 29 07:35:35 UTC 2025","2672","","com.ecommerce.tests.OrderPageTest","","com.ecommerce.tests.OrderPageTest","testOrderModalTotalAmount","testOrderModalTotalAmount()","Verify that the total amount displayed in the modal matches the cart total"
-"failed","Mon Sep 29 07:34:38 UTC 2025","Mon Sep 29 07:34:44 UTC 2025","6064","","com.ecommerce.tests.SignupTest","","com.ecommerce.tests.SignupTest","testSpecialCharsUsername","testSpecialCharsUsername()","Verify signup with username containing special characters"
-"failed","Mon Sep 29 07:38:50 UTC 2025","Mon Sep 29 07:39:01 UTC 2025","11436","","Homepage","","Homepage loads and shows product list","","Homepage loads and shows product list","  As a Customer
-  I want to access the Product Store homepage
-  So that I can browse available products"
-"passed","Mon Sep 29 07:38:48 UTC 2025","Mon Sep 29 07:38:50 UTC 2025","1380","","Contact form","","Close the Contact form with X button","","Close the Contact form with X button","  As a customer
+"failed","Mon Sep 29 07:46:06 UTC 2025","Mon Sep 29 07:46:12 UTC 2025","5897","","com.ecommerce.tests.CartPageTest","","com.ecommerce.tests.CartPageTest","testPlaceOrderButtonIsVisible","testPlaceOrderButtonIsVisible()","Verify that 'Place Order' button is visible on cart page"
+"passed","Mon Sep 29 07:45:53 UTC 2025","Mon Sep 29 07:45:56 UTC 2025","3425","","com.ecommerce.tests.OrderPageTest","","com.ecommerce.tests.OrderPageTest","testEmptyOrderSubmission","testEmptyOrderSubmission()","Verify that submitting an order with empty fields triggers an alert"
+"failed","Mon Sep 29 07:47:23 UTC 2025","Mon Sep 29 07:47:29 UTC 2025","6135","","com.ecommerce.tests.AboutUsPageTest","","com.ecommerce.tests.AboutUsPageTest","testCloseModalWithCloseIcon","testCloseModalWithCloseIcon()","Verify Close icon (X) closes the modal"
+"passed","Mon Sep 29 07:47:55 UTC 2025","Mon Sep 29 07:47:57 UTC 2025","1710","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testPreviousButtonNavigatesBackToPreviousPage","testPreviousButtonNavigatesBackToPreviousPage()","Verify Previous button navigates back to the previous product page"
+"failed","Mon Sep 29 07:46:00 UTC 2025","Mon Sep 29 07:46:06 UTC 2025","5923","","com.ecommerce.tests.CartPageTest","","com.ecommerce.tests.CartPageTest","testCartPageLoadsSuccessfully","testCartPageLoadsSuccessfully()","Verify that the cart page loads successfully"
+"failed","Mon Sep 29 07:48:23 UTC 2025","Mon Sep 29 07:48:29 UTC 2025","5884","","com.ecommerce.tests.ContactPageTest","","com.ecommerce.tests.ContactPageTest","testSubmitWithoutMessage","testSubmitWithoutMessage()","Attempt to submit message with missing message body"
+"failed","Mon Sep 29 07:44:58 UTC 2025","Mon Sep 29 07:45:04 UTC 2025","6029","","com.ecommerce.tests.SignupTest","","com.ecommerce.tests.SignupTest","testLongUsername","testLongUsername()","Verify signup fails with very long username"
+"failed","Mon Sep 29 07:47:17 UTC 2025","Mon Sep 29 07:47:23 UTC 2025","6025","","com.ecommerce.tests.AboutUsPageTest","","com.ecommerce.tests.AboutUsPageTest","testCloseModalWithCloseButton","testCloseModalWithCloseButton()","Verify Close button is visible and can close the modal"
+"failed","Mon Sep 29 07:48:41 UTC 2025","Mon Sep 29 07:48:46 UTC 2025","5877","","com.ecommerce.tests.ContactPageTest","","com.ecommerce.tests.ContactPageTest","testCloseModalWithCloseButton","testCloseModalWithCloseButton()","Verify the Contact modal can be closed with the Close button"
+"passed","Mon Sep 29 07:47:30 UTC 2025","Mon Sep 29 07:47:31 UTC 2025","817","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testAuthLinksVisibleLoggedOut","testAuthLinksVisibleLoggedOut()","Verify login and signup links are visible when logged out"
+"failed","Mon Sep 29 07:45:22 UTC 2025","Mon Sep 29 07:45:28 UTC 2025","5965","","com.ecommerce.tests.SignupTest","","com.ecommerce.tests.SignupTest","testExistingUserSignup","testExistingUserSignup()","Verify signup fails with existing username"
+"passed","Mon Sep 29 07:47:46 UTC 2025","Mon Sep 29 07:47:47 UTC 2025","884","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testSelectLaptopsCategory","testSelectLaptopsCategory()","Verify Laptops category filters products correctly"
+"passed","Mon Sep 29 07:48:59 UTC 2025","Mon Sep 29 07:49:00 UTC 2025","1323","","Contact form","","Close the Contact form with X button","","Close the Contact form with X button","  As a customer
   I want to use the Contact form
   So that I can send a message to the store"
-"passed","Mon Sep 29 07:37:32 UTC 2025","Mon Sep 29 07:37:33 UTC 2025","851","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testCategoriesSectionVisible","testCategoriesSectionVisible()","Verify categories section is visible"
-"failed","Mon Sep 29 07:35:09 UTC 2025","Mon Sep 29 07:35:15 UTC 2025","6007","","com.ecommerce.tests.SignupTest","","com.ecommerce.tests.SignupTest","testExistingUserSignup","testExistingUserSignup()","Verify signup fails with existing username"
-"passed","Mon Sep 29 07:35:27 UTC 2025","Mon Sep 29 07:35:30 UTC 2025","2811","","com.ecommerce.tests.OrderPageTest","","com.ecommerce.tests.OrderPageTest","testOrderModalIsDisplayed","testOrderModalIsDisplayed()","Verify that the order modal is displayed when 'Place Order' button is clicked"
-"passed","Mon Sep 29 07:37:43 UTC 2025","Mon Sep 29 07:37:45 UTC 2025","1787","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testPreviousButtonNavigatesBackToPreviousPage","testPreviousButtonNavigatesBackToPreviousPage()","Verify Previous button navigates back to the previous product page"
+"passed","Mon Sep 29 07:48:55 UTC 2025","Mon Sep 29 07:48:57 UTC 2025","2403","","Shopping Cart","","Delete a product from cart","","Delete a product from cart","  As a customer
+  I want to manage products in my cart
+  So that I can review or remove items before purchase"
+"failed","Mon Sep 29 07:47:59 UTC 2025","Mon Sep 29 07:48:05 UTC 2025","5867","","com.ecommerce.tests.ContactPageTest","","com.ecommerce.tests.ContactPageTest","testContactModalOpens","testContactModalOpens()","Verify the Contact modal opens and displays correct title"
+"failed","Mon Sep 29 07:49:00 UTC 2025","Mon Sep 29 07:49:12 UTC 2025","11415","","Homepage","","Homepage loads and shows product list","","Homepage loads and shows product list","  As a Customer
+  I want to access the Product Store homepage
+  So that I can browse available products"
+"passed","Mon Sep 29 07:47:52 UTC 2025","Mon Sep 29 07:47:54 UTC 2025","1256","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testProductPriceFormat","testProductPriceFormat()","Verify product prices display in expected format ($<amount>)"
+"failed","Mon Sep 29 07:48:11 UTC 2025","Mon Sep 29 07:48:17 UTC 2025","6064","","com.ecommerce.tests.ContactPageTest","","com.ecommerce.tests.ContactPageTest","testSubmitWithoutEmail","testSubmitWithoutEmail()","Attempt to submit message with missing email"
+"failed","Mon Sep 29 07:46:28 UTC 2025","Mon Sep 29 07:46:34 UTC 2025","5917","","com.ecommerce.tests.LoginTest","","com.ecommerce.tests.LoginTest","testInvalidUsername","testInvalidUsername()","Verify login fails with invalid username"
+"failed","Mon Sep 29 07:48:29 UTC 2025","Mon Sep 29 07:48:35 UTC 2025","6069","","com.ecommerce.tests.ContactPageTest","","com.ecommerce.tests.ContactPageTest","testSubmitWithAllEmptyFields","testSubmitWithAllEmptyFields()","Attempt to submit form with all fields empty"
+"passed","Mon Sep 29 07:49:17 UTC 2025","Mon Sep 29 07:49:18 UTC 2025","816","","Homepage","","Verify homepage slider","","Verify homepage slider","  As a Customer
+  I want to access the Product Store homepage
+  So that I can browse available products"
+"passed","Mon Sep 29 07:45:43 UTC 2025","Mon Sep 29 07:45:46 UTC 2025","2867","","com.ecommerce.tests.OrderPageTest","","com.ecommerce.tests.OrderPageTest","testOrderModalTitle","testOrderModalTitle()","Verify that the modal title is correct"
+"passed","Mon Sep 29 07:47:43 UTC 2025","Mon Sep 29 07:47:43 UTC 2025","772","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testSliderIsDisplayed","testSliderIsDisplayed()","Verify slider is displayed on the homepage"
+"passed","Mon Sep 29 07:45:49 UTC 2025","Mon Sep 29 07:45:53 UTC 2025","4254","","com.ecommerce.tests.OrderPageTest","","com.ecommerce.tests.OrderPageTest","testSuccessModalDisplayed","testSuccessModalDisplayed()","Verify that the success modal is displayed after clicking purchase"
+"failed","Mon Sep 29 07:46:52 UTC 2025","Mon Sep 29 07:46:58 UTC 2025","5962","","com.ecommerce.tests.LoginTest","","com.ecommerce.tests.LoginTest","testSQLInjectionLogin","testSQLInjectionLogin()","Verify login fails with SQL Injection attempt"
+"failed","Mon Sep 29 07:45:10 UTC 2025","Mon Sep 29 07:45:16 UTC 2025","5988","","com.ecommerce.tests.SignupTest","","com.ecommerce.tests.SignupTest","testShortUsernameAndPassword","testShortUsernameAndPassword()","Verify signup fails with too short username and password"
+"failed","Mon Sep 29 07:45:04 UTC 2025","Mon Sep 29 07:45:10 UTC 2025","6011","","com.ecommerce.tests.SignupTest","","com.ecommerce.tests.SignupTest","testEmptyUsername","testEmptyUsername()","Verify signup fails with empty username"
+"passed","Mon Sep 29 07:49:12 UTC 2025","Mon Sep 29 07:49:13 UTC 2025","1492","","Homepage","","Navigate to product detail page","","Navigate to product detail page","  As a Customer
+  I want to access the Product Store homepage
+  So that I can browse available products"
+"passed","Mon Sep 29 07:46:14 UTC 2025","Mon Sep 29 07:46:17 UTC 2025","2667","","com.ecommerce.tests.CartPageTest","","com.ecommerce.tests.CartPageTest","testDeleteProductFromCart","testDeleteProductFromCart()","Verify that a product can be deleted from the cart"
+"passed","Mon Sep 29 07:47:45 UTC 2025","Mon Sep 29 07:47:46 UTC 2025","913","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testSelectPhonesCategory","testSelectPhonesCategory()","Verify Phones category filters products correctly"
+"failed","Mon Sep 29 07:48:05 UTC 2025","Mon Sep 29 07:48:11 UTC 2025","6086","","com.ecommerce.tests.ContactPageTest","","com.ecommerce.tests.ContactPageTest","testSubmitValidMessage","testSubmitValidMessage()","Submit contact form with valid data"
+"failed","Mon Sep 29 07:46:17 UTC 2025","Mon Sep 29 07:46:23 UTC 2025","6048","","com.ecommerce.tests.LoginTest","","com.ecommerce.tests.LoginTest","testValidLogin","testValidLogin()","Verify successful login with valid credentials"
+"failed","Mon Sep 29 07:47:58 UTC 2025","Mon Sep 29 07:47:59 UTC 2025","988","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testPreviousButtonHiddenOnFirstPage","testPreviousButtonHiddenOnFirstPage()","Verify Previous button is hidden on the first page"
+"passed","Mon Sep 29 07:48:53 UTC 2025","Mon Sep 29 07:48:55 UTC 2025","2257","","Shopping Cart","","View products in cart","","View products in cart","  As a customer
+  I want to manage products in my cart
+  So that I can review or remove items before purchase"
+"passed","Mon Sep 29 07:45:40 UTC 2025","Mon Sep 29 07:45:43 UTC 2025","2752","","com.ecommerce.tests.OrderPageTest","","com.ecommerce.tests.OrderPageTest","testOrderModalIsDisplayed","testOrderModalIsDisplayed()","Verify that the order modal is displayed when 'Place Order' button is clicked"
+"passed","Mon Sep 29 07:47:43 UTC 2025","Mon Sep 29 07:47:44 UTC 2025","707","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testSliderImageCount","testSliderImageCount()","Verify slider has at least the expected number of images"
+"passed","Mon Sep 29 07:47:44 UTC 2025","Mon Sep 29 07:47:45 UTC 2025","782","","com.ecommerce.tests.HomePageTest","","com.ecommerce.tests.HomePageTest","testCategoriesSectionVisible","testCategoriesSectionVisible()","Verify categories section is visible"
+"failed","Mon Sep 29 07:45:28 UTC 2025","Mon Sep 29 07:45:34 UTC 2025","5981","","com.ecommerce.tests.SignupTest","","com.ecommerce.tests.SignupTest","testSqlInjectionAttempt","testSqlInjectionAttempt()","Verify signup fails with SQL injection attempt in username"
+"passed","Mon Sep 29 07:46:12 UTC 2025","Mon Sep 29 07:46:14 UTC 2025","2178","","com.ecommerce.tests.CartPageTest","","com.ecommerce.tests.CartPageTest","testAddSingleProductToCart","testAddSingleProductToCart()","Verify that a single product can be added to the cart"
+"failed","Mon Sep 29 07:46:40 UTC 2025","Mon Sep 29 07:46:46 UTC 2025","5906","","com.ecommerce.tests.LoginTest","","com.ecommerce.tests.LoginTest","testEmptyPassword","testEmptyPassword()","Verify login fails with empty password"
