@@ -20,6 +20,7 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@Tag("regression")
 public class SignupTest extends BaseTest {
 
     private HomePage homePage;
