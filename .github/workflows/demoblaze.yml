@@ -225,6 +225,14 @@
             name: cucumber-report
             path: cucumber-report   # this will be a directory
 
+        - name: Deploy report to GitHub Pages
+          uses: peaceiris/actions-gh-pages@v4
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: cucumber-report
+            publish_branch: gh-pages
+            destination_dir: cucumber-report
+
 
 
       # ------------------------
