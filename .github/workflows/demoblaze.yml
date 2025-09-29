@@ -42,12 +42,12 @@
             name: cucumber-json
             path: target/cucumber.json
 
-        - name: Upload Cucumber HTML
+        - name: Upload Cucumber Report
           if: always()
           uses: actions/upload-artifact@v4
           with:
-            name: cucumber-html
-            path: target/cucumber-report.html
+            name: cucumber-report
+            path: cucumber-report/cucumber-report.html
 
 
 
@@ -212,36 +212,18 @@
     # 6. DEPLOY CUCUMBER REPORT
     # ------------------------
     deploy-cucumber-report:
-      name: 🚀 Publish Cucumber Report
-      runs-on: ubuntu-latest
       needs: ui-tests
+      runs-on: ubuntu-latest
       if: always()
-
       steps:
         - name: Checkout code
           uses: actions/checkout@v4
 
-        # Download the artifact from the UI test job
-        - name: Download Cucumber artifact
+        - name: Download Cucumber reports
           uses: actions/download-artifact@v4
           with:
             name: cucumber-report
-            path: cucumber-report
-
-        # Prepare the report for GitHub Pages
-        - name: Prepare Cucumber report for Pages
-          run: |
-            mkdir -p cucumber-report-publish
-            cp cucumber-report/cucumber-reports.html cucumber-report-publish/index.html
-
-        # Deploy to GitHub Pages
-        - name: Deploy Cucumber report to GitHub Pages
-          uses: peaceiris/actions-gh-pages@v4
-          with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: cucumber-report-publish
-            publish_branch: gh-pages
-            destination_dir: cucumber-report
+            path: cucumber-report   # this will be a directory
 
 
 
