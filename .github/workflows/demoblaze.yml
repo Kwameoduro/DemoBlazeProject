@@ -235,8 +235,6 @@
             destination_dir: cucumber-report
 
 
-
-
       # ------------------------
     # 7. SLACK NOTIFICATION
     # ------------------------
