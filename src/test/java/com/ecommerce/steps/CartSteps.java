@@ -12,14 +12,14 @@ public class CartSteps {
 
     @Given("the customer adds {string} to the cart")
     public void addProductToCart(String productName) {
-        homePage.clickProductByName(productName);
-        homePage.addFirstProductToCart();
-        homePage.acceptAlert();
+        homePage.clickProductByNamee(productName);
+        homePage.addFirstProductToCartt();
+        homePage.acceptAlertt();
     }
 
     @Given("the customer navigates to the Cart page")
     public void navigateToCartPage() {
-        homePage.clickCart();
+        homePage.clickCartt();
         assertTrue(cartPage.isCartTableVisible(), "Cart page should be displayed");
     }
 
