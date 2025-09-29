@@ -62,4 +62,7 @@ public class ProductPage extends BasePage {
     public String getProductDescription() {
         return productDescription.shouldBe(visible).getText().trim();
     }
+    public void clickAddToCartt() {
+        addToCartButton.shouldBe(visible).click();
+    }
 }
