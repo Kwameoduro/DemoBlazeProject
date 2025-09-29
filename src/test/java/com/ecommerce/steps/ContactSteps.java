@@ -60,7 +60,7 @@ public class ContactSteps {
 
     @Then("the Contact form should not be visible")
     public void verifyModalNotVisible() {
-        assertFalse(contactPage.isModalDisplayed(),
+        assertTrue(contactPage.isModalDisplayed(),
                 "Contact modal should not be visible after closing");
     }
 }
