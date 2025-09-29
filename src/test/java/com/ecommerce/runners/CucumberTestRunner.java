@@ -15,7 +15,7 @@ import static io.cucumber.junit.platform.engine.Constants.*;
 @IncludeEngines("cucumber") // specify the Cucumber engine
 @SelectClasspathResource("features") // path to your feature files
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "com.ecommerce.steps,com.ecommerce.hooks")
-@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, html:target/cucumber-reports.html, json:target/cucumber.json, junit:target/cucumber.xml")
+@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, json:target/cucumber.json, junit:target/cucumber.xml, io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm")
 
 public class CucumberTestRunner {
     // Empty class — configuration is handled via annotations
