@@ -97,4 +97,19 @@ public class CartPage extends BasePage {
         $("#tbodyid tr td:nth-child(3) a").shouldBe(Condition.visible).click();
     }
 
+    /** Wait until cart table is loaded with at least one row */
+    public void waitForCartToLoad() {
+        cartRows.shouldBe(CollectionCondition.sizeGreaterThan(0));
+    }
+
+    /** Wait until a product disappears after deletion */
+    public void waitForCartToUpdate(int previousCount) {
+        cartRows.shouldHave(CollectionCondition.sizeLessThan(previousCount));
+    }
+
+    /** Check if product is in cart */
+    public boolean isProductInCart(String productName) {
+        return productTitles.texts().contains(productName);
+    }
+
 }
