@@ -232,7 +232,6 @@
             publish_branch: gh-pages
             destination_dir: cucumber-report
 
-
       # ------------------------
     # 7. SLACK NOTIFICATION
     # ------------------------
