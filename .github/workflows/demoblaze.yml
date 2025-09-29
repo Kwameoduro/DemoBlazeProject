@@ -221,18 +221,28 @@
         - name: Checkout code
           uses: actions/checkout@v4
 
+        # Download the artifact from the UI test job
+        - name: Download Cucumber artifact
+          uses: actions/download-artifact@v4
+          with:
+            name: cucumber-report
+            path: cucumber-report
+
+        # Prepare the report for GitHub Pages
         - name: Prepare Cucumber report for Pages
           run: |
-            mkdir -p cucumber-report
-            cp target/cucumber-reports.html cucumber-report/index.html
+            mkdir -p cucumber-report-publish
+            cp cucumber-report/cucumber-reports.html cucumber-report-publish/index.html
 
+        # Deploy to GitHub Pages
         - name: Deploy Cucumber report to GitHub Pages
           uses: peaceiris/actions-gh-pages@v4
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: cucumber-report
+            publish_dir: cucumber-report-publish
             publish_branch: gh-pages
             destination_dir: cucumber-report
+
 
 
       # ------------------------
