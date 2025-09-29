@@ -49,7 +49,7 @@ public class HomePage extends BasePage {
     private final SelenideElement nextButton = $("#next2");
     private final SelenideElement prevButton = $("#prev2");
 
-    private final SelenideElement firstProductLink = $("#tbodyid .card-title a");
+    private final SelenideElement firstProductLink = $("#tbodyid .hrefch");
     private final SelenideElement addToCartButton = $(".btn.btn-success");
 
     // === Navbar actions ===
@@ -220,12 +220,14 @@ public class HomePage extends BasePage {
         com.codeborne.selenide.Selenide.switchTo().alert().accept();
     }
 
+    // HomePage.java
     public void clickProductByName(String productName) {
-        $$(".card-title a")
-                .findBy(text(productName))
-                .shouldBe(visible)
+        $$("#tbodyid .hrefch")
+                .findBy(Condition.text(productName))
+                .shouldBe(Condition.visible)
                 .click();
     }
+
 
 
     // Existing method — keep for backward compatibility
@@ -256,5 +258,27 @@ public class HomePage extends BasePage {
         return productCards.get(index).$("img").getAttribute("src");
     }
 
+    private final String productLink = "#tbodyid .hrefch";
+    private final String addToCartButtonn = "a.btn.btn-success.btn-lg"; // "Add to cart" button
+
+    // Click product by name (like "Samsung galaxy s6")
+    public void clickProductByNamee(String productName) {
+        $$(productLink).findBy(text(productName)).click();
+    }
+
+    // Add product to cart (works after opening product details page)
+    public void addFirstProductToCartt() {
+        $(addToCartButtonn).click();
+    }
+
+    // Accept alert
+    public void acceptAlertt() {
+        switchTo().alert().accept();
+    }
+
+    // Navigate to Cart
+    public void clickCartt() {
+        $("a#cartur").click();
+    }
 
 }
