@@ -8,6 +8,7 @@ package com.ecommerce.pages;
 import com.ecommerce.base.BasePage;
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Condition.hidden;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.switchTo;
 import static com.codeborne.selenide.Condition.visible;
@@ -99,4 +100,5 @@ public class ContactPage extends BasePage {
     public void acceptAlert() {
         switchTo().alert().accept();
     }
+
 }
