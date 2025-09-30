@@ -11,7 +11,7 @@
     # 1. UI TESTS (BDD + Selenide)
     # ------------------------
     ui-tests:
-      name: 🧪 UI Tests
+      name:  UI Tests
       runs-on: ubuntu-latest
       continue-on-error: false
 
@@ -55,7 +55,7 @@
     # 2. PERFORMANCE TESTS (JMeter)
     # ------------------------
     performance:
-      name: 📊 JMeter Load Test
+      name:  JMeter Load Test
       runs-on: ubuntu-latest
       needs: ui-tests
       if: always()
@@ -83,7 +83,7 @@
     # 3. SECURITY TESTS (OWASP ZAP)
     # ------------------------
     security:
-      name: 🔒 OWASP ZAP Scan
+      name:  OWASP ZAP Scan
       runs-on: ubuntu-latest
       needs: ui-tests
       if: always()
@@ -106,7 +106,7 @@
               -J zap-report.json \
               -I
 
-            # 👇 Rename for GitHub Pages
+            #  Rename for GitHub Pages
             mv security-test/zap-report.html security-test/index.html
 
         - name: Upload ZAP Report
@@ -121,7 +121,7 @@
     # 4. DEPLOY ALLURE REPORT
     # ------------------------
     deploy-allure-report:
-      name: 🚀 Publish Allure Report
+      name:  Publish Allure Report
       runs-on: ubuntu-latest
       needs: ui-tests
       if: always()
@@ -158,7 +158,7 @@
     # 5. DEPLOY JMETER REPORT
     # ------------------------
     deploy-jmeter-report:
-      name: 🚀 Publish JMeter Report
+      name:  Publish JMeter Report
       runs-on: ubuntu-latest
       needs: performance
       if: always()
@@ -185,7 +185,7 @@
     # 6. DEPLOY ZAP REPORT
     # ------------------------
     deploy-zap-report:
-      name: 🚀 Publish ZAP Security Report
+      name:  Publish ZAP Security Report
       runs-on: ubuntu-latest
       needs: security
       if: always()
@@ -239,7 +239,7 @@
     # 7. SLACK NOTIFICATION
     # ------------------------
     notify-slack:
-      name: 🔔 Slack Notification
+      name:  Slack Notification
       runs-on: ubuntu-latest
       needs: [ ui-tests, performance, security, deploy-allure-report, deploy-jmeter-report, deploy-zap-report, deploy-cucumber-report ]
       if: always()
